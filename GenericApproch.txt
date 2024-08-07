@@ -1,0 +1,612 @@
+Generic_Utilities Implementation
+--------------------------------
+
+package Generic_Utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class Excel_Utility {
+
+	/**
+	 * it used to read data from excel
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public  String getExcelData(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+  	String ExcelData = cell.getStringCellValue();
+	return ExcelData;
+	}
+	/**
+	 * This method is used to read data from excel using DataFormatter approch
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public String readExcelDataUsingDataFormatter(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+    DataFormatter format = new DataFormatter();
+	String ExcelData = format.formatCellValue(cell);
+	return ExcelData;
+		}
+	
+	/**
+	 * This method is used to write data to Excel
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @param data
+	 * @return
+	 * @throws Throwable
+	 */
+	public void insertDataToExcel(String sheetName, int rowNum, int cellNum, String data) throws Throwable
+	{
+		FileInputStream fis = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		Workbook book = WorkbookFactory.create(fis);
+		Sheet sheet = book.getSheet(sheetName);
+		Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(cellNum);
+		cell.setCellValue(data);
+		FileOutputStream fos = new FileOutputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		book.write(fos);
+		book.close();
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Generic_Utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class File_Utility {
+
+	/**
+	 * its used return the value from property file based on key
+	 * @param key
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public String getKeyAndValueData(String key) throws Throwable
+	{
+	 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	 Properties pro = new Properties();
+	 pro.load(fis);
+	 return pro.getProperty(key);
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Generic_Utilities;
+
+import java.util.Random;
+
+public class Java_Utility {
+
+	/**
+	 * its used to generate the random number with in the range of 1000
+	 * @return
+	 * @author Shobha
+	 */
+	public int getRandomNumber()
+	{
+		   Random ranNum = new Random();
+	        int ranNumber = ranNum.nextInt(1000);
+			return ranNumber;
+	}
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Generic_Utilities;
+
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class WebDriver_utility {
+
+	/**
+	 * this method is used for maximizing window
+	 * @param driver
+	 * @author Shobha
+	 */
+	public void maximizeWindow(WebDriver driver)
+	{
+		driver.manage().window().maximize();
+	}
+	
+	/**
+	 * this method is used to wait all elements to get loaded in GUI
+	 * version3
+	 * @param driver
+	 */
+	public void waitForElementToLoad(WebDriver driver)
+	{
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	}
+	
+	/**
+	 * this method is used to wait all elements to get loaded in GUI
+	 * version4
+	 * @param driver
+	 */
+	public void elementsToGetLoaded(WebDriver driver)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	/**
+	 * this method is used to switch windows
+	 * @param driver
+	 * @param particalText
+	 */
+	public  void switchingWindows(WebDriver driver,String particalText)
+	{
+		 Set<String> wins = driver.getWindowHandles();
+	      Iterator<String> it = wins.iterator();
+	         while(it.hasNext())
+	       {
+	    	   String win = it.next();
+	    	   driver.switchTo().window(win);
+	    	   String currentTitle = driver.getTitle();
+	    	   if(currentTitle.contains(particalText))
+	    	   {
+	    		   break;
+	    	   }
+	       }
+	}
+	/**
+	 * this method is used to accept the alert popup
+	 * @param driver
+	 */
+	public void alertAccept(WebDriver driver)
+	{
+		driver.switchTo().alert().accept();
+	}
+	
+	/** this method is used to dismiss the alert popup
+	 * 
+	 * @param driver
+	 */
+	public void alertDismiss(WebDriver driver)
+	{
+		driver.switchTo().alert().dismiss();
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByIndex)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByIndexApproch(WebElement ele, int value)
+	{
+		Select select = new Select(ele);
+		select.selectByIndex(value);
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByValue)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByValueApproch(WebElement ele, String value)
+	{
+		Select select = new Select(ele);
+		select.selectByValue(value);
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByValue)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByVisibleTextApproch(WebElement ele, String text)
+	{
+		Select select = new Select(ele);
+		select.selectByVisibleText(text);
+	}
+	
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		 
+		 WebDriver driver=new ChromeDriver();
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		wlib.maximizeWindow(driver);
+		 wlib.waitForElementToLoad(driver);
+		
+        driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        
+        driver.findElement(By.linkText("Organizations")).click();
+        driver.findElement(By.cssSelector("[alt='Create Organization...']")).click();
+      
+        int ranNum = jlib.getRandomNumber();
+     
+   //   String organizationData = elib.getExcelData("Organization", 0, 0)+ranNum;
+        String organizationData = elib.readExcelDataUsingDataFormatter("Organization", 0, 0)+ranNum;
+         
+        driver.findElement(By.name("accountname")).sendKeys(organizationData);
+        String phoneNum = elib.readExcelDataUsingDataFormatter("Organization", 2, 1);
+        driver.findElement(By.id("phone")).sendKeys(phoneNum);
+        
+        String emailId = elib.readExcelDataUsingDataFormatter("Organization", 3, 1);
+        driver.findElement(By.id("email1")).sendKeys(emailId);
+        
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Campaign;
+
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+
+public class CreateCampaign {
+
+	public static void main(String[] args) throws Throwable {
+		File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		WebDriver driver=new ChromeDriver();
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.elementsToGetLoaded(driver);
+       
+		driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+        
+        int ranNum = jlib.getRandomNumber();
+        
+        String campaginName = elib.readExcelDataUsingDataFormatter("Campaign", 0, 0)+ranNum;
+        driver.findElement(By.name("campaignname")).sendKeys(campaginName);
+       
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Campaign;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Random;
+import java.util.Set;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+
+public class CreateCampaignWithProduct {
+
+	public static void main(String[] args) throws Throwable {
+		File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		 WebDriver driver=new ChromeDriver();
+         String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.waitForElementToLoad(driver);
+
+        driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        int ranNumber = jlib.getRandomNumber();
+      
+        driver.findElement(By.linkText("Products")).click();
+        driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+		
+
+	String productData = elib.getExcelData("Product", 0, 0)+ranNumber;
+	driver.findElement(By.name("productname")).sendKeys(productData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+    
+        String campaignData = elib.getExcelData("Campaign", 0, 0)+ranNumber;
+         driver.findElement(By.name("campaignname")).sendKeys(campaignData);
+       
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/select.gif']")).click();
+        
+        wlib.switchingWindows(driver, "Products&action");
+        
+        driver.findElement(By.xpath("//input[@id='search_txt']")).sendKeys(productData);
+        driver.findElement(By.xpath("//input[@name='search']")).click();
+      
+        //Dynamic Xpath
+        driver.findElement(By.xpath("//a[text()='"+productData+"']")).click(); 
+        
+        wlib.switchingWindows(driver, "Campaigns&action");
+        
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+     }
+
+}
+*----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+
+public class CreateProduct {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		 
+		 WebDriver driver=new ChromeDriver();
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		wlib.maximizeWindow(driver);
+		wlib.elementsToGetLoaded(driver);
+       
+		driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+
+       int ranNum = jlib.getRandomNumber();
+        
+       driver.findElement(By.linkText("Products")).click();
+      driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+	
+	
+	String productData = elib.getExcelData("Product", 0, ranNum)+ranNum;
+	driver.findElement(By.name("productname")).sendKeys(productData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+    driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.List;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+
+public class CreateProductandDeletePrd {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		 
+		WebDriver driver=new ChromeDriver();
+	     String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.elementsToGetLoaded(driver);
+		 driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+       driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+       driver.findElement(By.id("submitButton")).click();
+	    
+	    driver.findElement(By.linkText("Products")).click();
+	    driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+	   
+	   int ranNumber = jlib.getRandomNumber();
+	
+ 	  String productData = elib.readExcelDataUsingDataFormatter("Product", 1, 1)+ranNumber;
+ 	 driver.findElement(By.name("productname")).sendKeys(productData);
+	 driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();    
+	    
+	 driver.findElement(By.linkText("Products")).click(); 
+//	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='Product Name']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productData+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//input[@value='Delete']")).click();
+	    
+	   wlib.alertAccept(driver);
+	    
+	  List<WebElement> productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()>1]")); 
+	    	
+	boolean flag = false;
+	
+	for (WebElement prdName : productList)
+	{
+		String actData = prdName.getText();
+		if(actData.contains(productData))
+		{
+			flag=true;
+		   break;
+		}}
+	if(flag)
+	{
+		System.out.println("product data is deleted");
+	}
+	else
+	{
+		System.out.println("product data is not deleted");
+	}
+		
+	  
+       driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+       driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------

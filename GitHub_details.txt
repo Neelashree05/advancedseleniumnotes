@@ -1,0 +1,90 @@
+GitHub
+
+GitHub token id[password]-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
+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-new token id
+username-Neelashree
+
+to create repository
+
+open GitHub
+click on Your repositories
+click on new
+give repository name[the code wch yu wanted to push]
+click on create repository.
+
+how to push code from eclipse
+this will store code in local disk
+
+open eclipse
+select the project 
+right click on project
+select team
+click on share project
+uncheck the checked box
+click on create
+click on finish[reposiroty1]its already ther
+
+code will pushed to your GitHub
+
+after this will get REPOSITORY MASTER in package
+right click on project
+select team
+click on commit
+click on double plus sign[this will change from unstaged to staged changes]
+click on push/commit
+
+how to update code and pull code from GitHub to eclipse
+GitHub
+
+select the code
+click on edit
+make necessary code changes
+click on commit changes
+again click on commit changes
+open eclipse
+refresh the project
+
+eclipse
+
+click on team
+click on pull...
+click on finish
+click on close
+see the code
+code will got updated
+
+fork-to add others frameworks to our repository
+copy and paste the other respository URL
+click on fork
+click on new fork
+give name if you want
+click on okay
+then check in your repository the FW got added
+
+pull-repository to eclipse
+push-eclipse to repository
+
+without modification we cant push framework to the repository
+without updating that is pull we cant push the framework
+first pull the framework then do modifications then push back
+
+push and pull through gitbash cmd
+
+git config --global user.name "Neelashree"
+git config --global user.email "neelashreen33@gmail.com"
+git init
+git remote add origin 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
+git status
+git add .
+git status
+git commit -m "push1"
+git pull origin master
+git push orgin master
+git branch branchone
+git checkout branchone
+
+pull request-manager will send request to test engineer to acess the master repo
+then the tester will get invitation and accept the request then he as all the access.
+
+fork-getting others franework repo to our repo
+clone-fetching framework from github repo to our eclipse project.

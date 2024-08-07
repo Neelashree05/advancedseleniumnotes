@@ -1,0 +1,385 @@
+                                              Generic Libraries / Utility
+
+What is Generic components in Automation Framework?
+it’s one of the automation framework components which is common for all the application
+its collection of generic class contains reusable methods / libraries 
+      The methods which can be used to any application is called Generic/common methods
+ - This is a package created in src/main/java source folder 
+ - It is used to store all the generic classes
+What is the advantages of Generic components?
+	Reusability of code
+	Code Optimization 
+	Test script development is faster
+	Test Code readability
+	Generic libraries are common to all automation projects
+	Avoid duplicate Code
+	no need to remember the syntax every time , just create once & use multiple times 
+
+
+1.	Java Utility Libraries 
+ 
+  Java Utility is one class in generic component, which contain java specific methods which can be used across the test Scripts / Application 
+ its contains several generic reusable methods like
+	getRandomNum() : it’s used to  generate random number for every invocation
+
+package Generic_Utilities;
+
+import java.util.Random;
+
+public class Java_Utility {
+
+	/**
+	 * its used to generate the random number with in the range of 1000
+	 * @return
+	 * @author Shobha
+	 */
+	public int getRandomNumber()
+	{
+		   Random ranNum = new Random();
+	        int ranNumber = ranNum.nextInt(1000);
+			return ranNumber;
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.	WebDriver Utility Libraries
+ 
+	WebdriverUtility  is a Generic class , which contains webdriver specific reusable actions like
+	waitForPageToLoad()
+	waitForElement()
+	select()
+	accpertAlert()
+	cancelAlert()  .Etc
+
+==========Code======================
+
+package com.crm.comcast.genericutility;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.io.Files;
+
+/**
+ *  its contains WebDriver specific reusable actions 
+ * @author Deepak
+ *
+ */
+public class WebDriverUtility {
+/**
+	 *   it's an implicitly wait  Always wait for Element in DOM document & release the control if element available 
+	 * @param driver
+	 */
+	public void waitForElementInDOM(WebDriver driver) {
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	}
+	
+	/**
+	 *   it's an Explicitly wait Always wait for Page to be loaded & available in GUI
+	 * @param driver
+	 * @param partailPageURL
+	 */
+	public void waitForPage(WebDriver driver , String partailPageURL) {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.urlContains(partailPageURL));
+	}
+	
+	/**
+	 *   it's an Explicitly wait Always wait for Page to be loaded & available in GUI
+	 * @param driver
+	 * @param partailPageURL
+	 */
+	public void waitForElement (WebDriver driver , WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	
+	/**
+	 *  used to Switch to Any Window based on Window Title
+	 * @param driver
+	 * @param partialWindowTitle
+	 */
+	public void swithToWindow(WebDriver driver , String partialWindowTitle) {
+	       Set<String> set = driver.getWindowHandles();
+	         Iterator<String> it = set.iterator();
+
+	          while (it.hasNext()) {
+			          String wID = it.next();
+			          driver.switchTo().window(wID);
+			          String currentWindowTitle = driver.getTitle();
+			          if(currentWindowTitle.contains(partialWindowTitle)) {
+			        	  break;
+			          }
+		    	}
+	}
+	/**
+	 * this method is used to accept the alert popup
+	 * @param driver
+	 */
+	public void alertAccept(WebDriver driver)
+	{
+		driver.switchTo().alert().accept();
+	}
+	
+	/** this method is used to dismiss the alert popup
+	 * 
+	 * @param driver
+	 */
+	public void alertDismiss(WebDriver driver)
+	{
+		driver.switchTo().alert().dismiss();
+	}
+	
+	/**
+	 * used to Switch to Frame Window based on index
+	 * @param driver
+	 * @param index
+	 */
+	public void swithToFrame(WebDriver driver , int index) {
+		driver.switchTo().frame(index);
+	}
+	
+	/**
+	 * used to Switch to Frame Window based on id or name attribute
+	 * @param driver
+	 * @param id_name_attribute
+	 */
+	public void swithToFrame(WebDriver driver , String id_name_attribute) {
+		driver.switchTo().frame(id_name_attribute);
+	}
+	
+	/**
+	 * used to select the value from the dropDwon  based on index
+	 * @param driver
+	 * @param index
+	 */
+	public void select(WebElement element , int index) {
+		Select sel = new Select(element);
+		sel.selectByIndex(index);
+	}
+	/**
+	 * used to select the value from the dropDwon  based on value / option avlaible in GUI
+	 * @param element
+	 * @param value
+	 */
+	public void select(WebElement element , String text) {
+		Select sel = new Select(element);
+		sel.selectByVisibleText(text);
+	}
+	/**
+	 * used to place mouse cursor on specified element
+	 * @param driver
+	 * @param elemnet
+	 */
+	public void mouseOverOnElement(WebDriver driver , WebElement elemnet)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(elemnet).perform();
+	}
+	
+	/**
+	 * 	 used to right click  on specified element
+
+	 * @param driver
+	 * @param elemnet
+	 */
+	
+	public void rightClickOnElement(WebDriver driver , WebElement elemnet)
+	{
+		Actions act = new Actions(driver);
+		act.contextClick(elemnet).perform();
+	}
+	
+	/**
+	 * 
+	 * @param driver
+	 * @param javaScript
+	 */
+	public void executeJavaScript(WebDriver driver , String javaScript) {
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeAsyncScript(javaScript, null);
+	}
+	
+	  	   
+   /**
+	     * pass enter Key appertain in to Browser
+	     * @param driver
+	     */
+	   public void passEnterKey(WebDriver driver) {
+		   Actions act = new Actions(driver);
+		   act.sendKeys(Keys.ENTER).perform();
+	   } 
+}
+
+/**
+	 * This method is used to move the cursor to a particular element
+	 * @param driver
+	 * @param ele
+	 */
+	public void moveToElement(WebDriver driver,WebElement ele)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(ele).perform();
+	}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.	Excel Utility libraries 
+
+ 
+	As per the rule of automation, data should not be hardcoded with in the test scripts, so that to get the data from external file like Excel & .propertes file 
+We go for ExcelUtility & FileUtlity
+	Excel Utility class is developed using apache Poi libraries, which is used to read the data from Excel 
+	FileUtility is used to get the data from .properties file 
+
+package Generic_Utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class Excel_Utility {
+
+	/**
+	 * it used to read data from excel
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public  String getExcelData(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+  	String ExcelData = cell.getStringCellValue();
+	return ExcelData;
+	}
+	/**
+	 * This method is used to read data from excel using DataFormatter approch
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public String readExcelDataUsingDataFormatter(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+    DataFormatter format = new DataFormatter();
+	String ExcelData = format.formatCellValue(cell);
+	return ExcelData;
+		}
+	
+	/**
+	 * This method is used to write data to Excel
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @param data
+	 * @return
+	 * @throws Throwable
+	 */
+	public void insertDataToExcel(String sheetName, int rowNum, int cellNum, String data) throws Throwable
+	{
+		FileInputStream fis = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		Workbook book = WorkbookFactory.create(fis);
+		Sheet sheet = book.getSheet(sheetName);
+		Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(cellNum);
+		cell.setCellValue(data);
+		FileOutputStream fos = new FileOutputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		book.write(fos);
+		book.close();
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+File_utility
+
+package Generic_Utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class File_Utility {
+
+	/**
+	 * its used return the value from property file based on key
+	 * @param key
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public String getKeyAndValueData(String key) throws Throwable
+	{
+	 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	 Properties pro = new Properties();
+	 pro.load(fis);
+	 return pro.getProperty(key);
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,542 @@
+POPUPs
+******
+
+Calender Popup
+
+A calendar can be in the form of a dropdown selection or with backward and forward buttons
+ to select up and down in dates we use Calender popup
+
+package POPUPS;
+
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CalenderPopup {
+
+	public static void main(String[] args) {
+
+   WebDriver driver=new ChromeDriver();
+   driver.get("https://www.makemytrip.com");
+   driver.manage().window().maximize();
+   
+   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+   
+   driver.findElement(By.xpath("//span[text()=\"Departure\"]")).click();
+   
+   //Dynamic xpath
+  // driver.findElement(By.xpath("//div[text()=\""+month+"\"]/ancestor::div[@class=\"DayPicker-Month\"]/descendant::p[text()=\"5\"]")).click();
+	
+  String month = "March 2024";
+  String date = "10";
+   driver.findElement(By.xpath("//div[text()=\""+month+"\"]/ancestor::div[@class=\"DayPicker-Month\"]/descendant::p[text()=\""+date+"\"]")).click();
+}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Alert Popup
+* It is also called Confirmation popup
+* This popups are undraggable
+* This popups are uninspectable because they are made of javascript due to this it is also called as javascript popup.
+* As this popup are uninspectable so webdriver cannot handle it directly.
+
+package POPUPS;
+
+import java.time.Duration;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AlertPopup {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com/javascript_alerts");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+	/*	driver.findElement(By.xpath("//button[text()=\"Click for JS Alert\"]")).click();
+		Alert alt = driver.switchTo().alert();
+		alt.accept();*/
+	
+		/*driver.findElement(By.xpath("//button[.=\"Click for JS Confirm\"]")).click();
+	     Alert alt = driver.switchTo().alert();
+	 //    alt.accept();
+	 //    alt.dismiss();
+	     String txt = alt.getText();
+	     System.out.println(txt);*/
+	     
+	     driver.findElement(By.xpath("//button[text()=\"Click for JS Prompt\"]")).click();
+	     Alert alt = driver.switchTo().alert();
+	     alt.sendKeys("Qspiders");
+	     alt.accept();
+	     }
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Frame popup
+* Frames are most commonly called as iframe
+* An inline frame (iframe) is a HTML element that loads another HTML page within the document.
+ It essentially puts another webpage within the parent page.
+ They are commonly used for advertisements, embedded videos etc.
+
+package POPUPS;
+
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class FramesPopup {
+
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+//3 Approach
+		//1)Switching frame using Index---->index value starts from 0
+		//2)Switching frame using id() nd name() value
+		//3)Switching frame using WebELements
+		driver.get("https://jqueryui.com/droppable/");
+		
+		driver.switchTo().frame(0);
+		
+		WebElement drag = driver.findElement(By.id("draggable"));
+		WebElement drop = driver.findElement(By.id("droppable"));
+	
+		Actions act = new Actions(driver);
+		act.dragAndDrop(drag, drop).perform();
+}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameHandlingEx1 {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver=new ChromeDriver();
+     driver.get("https://demo.automationtesting.in/Frames.html");
+     driver.manage().window().maximize();
+     
+             //switching frame using index value(index value starts from 0)
+    //       driver.switchTo().frame(1);
+  //  driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("Hi");
+	
+             //switching frame using id() value
+//	driver.switchTo().frame("singleframe");
+//	driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("GudEvng");
+	
+            //switching frame using name() value
+  //  driver.switchTo().frame("SingleFrame");
+   //  driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("Hi");
+	
+             //switching frame using webElement
+     WebElement txt = driver.findElement(By.xpath("//iframe[@id=\"singleframe\"]"));
+         driver.switchTo().frame(txt);
+	driver.findElement(By.xpath("//input[@type=\"text\"]")).sendKeys("Gud noon");
+	}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameHandlingEx2 {
+
+	public static void main(String[] args) {
+
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+
+driver.get("https://the-internet.herokuapp.com/frames");
+driver.findElement(By.xpath("//a[text()=\"Nested Frames\"]")).click();
+
+WebElement TopFrame = driver.findElement(By.xpath("//frame[@name=\"frame-top\"]"));
+	driver.switchTo().frame(TopFrame);
+	
+	WebElement leftFrame = driver.findElement(By.xpath("//frame[@name=\"frame-left\"]"));
+	driver.switchTo().frame(leftFrame);
+	
+	String txt = driver.findElement(By.xpath("//body[contains(text(),\"LEFT\")]")).getText();
+	System.out.println(txt);
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FramesEx {
+
+	public static void main(String[] args) {
+
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+
+driver.get("https://the-internet.herokuapp.com/frames");
+driver.findElement(By.xpath("//a[text()=\"Nested Frames\"]")).click();
+
+ WebElement topFrame = driver.findElement(By.xpath("//frame[@name=\"frame-top\"]"));
+
+ driver.switchTo().frame(topFrame);
+
+ WebElement leftChild = driver.findElement(By.xpath("//frame[@name=\"frame-left\"]"));
+ 
+ driver.switchTo().frame(leftChild);
+ String txt = driver.findElement(By.xpath("//body[contains(text(),\"LEFT\")]")).getText();
+ System.out.println(txt);
+ 
+ driver.switchTo().parentFrame();//switching from child to own parent(left to top)
+ 
+ WebElement middlechild = driver.findElement(By.xpath("//frame[@name=\"frame-middle\"]"));
+ 
+ driver.switchTo().frame(middlechild);
+ String txt1 = driver.findElement(By.xpath("//div[.=\"MIDDLE\"]")).getText();
+	System.out.println(txt1);
+	
+	driver.switchTo().defaultContent();//switching from grandchild to grandparent(middle to buttom)
+	WebElement buttomframe = driver.findElement(By.xpath("//frame[@name=\"frame-bottom\"]"));
+	
+	driver.switchTo().frame(buttomframe);
+	
+	String txt2 = driver.findElement(By.xpath("//body[contains(text(),\"BOTTOM\")]")).getText();
+	System.out.println(txt2);
+}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FileUpload popup
+
+The seperate window which comes for selecting the file which need to be upload is called file upload.
+
+package POPUPS;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FileUploadPopup {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://the-internet.herokuapp.com/upload");
+
+ WebElement txt = driver.findElement(By.xpath("//input[@id=\"file-upload\"]"));
+ txt.sendKeys("C:\\Users\\Shobha\\Downloads\\AdvanceScenarios(Updated-11am).txt");
+		
+ driver.findElement(By.xpath("//input[@value=\"Upload\"]")).click();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Authentication Popup
+
+In real time there will be some websites which will get access after providing username and password. so the popup which ask for 
+username and password is called as Authentication popup.
+
+This popup are uninspectable so webdriver cannot handle it directly.
+without providing authentication.we cannt access the application
+
+package POPUPS;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AutheticationPopup {
+
+	public static void main(String[] args) {
+
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		
+	//	driver.get("https://the-internet.herokuapp.com/basic_auth");
+
+		//syntax:-diver.get("https://username:password@url");
+
+		driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Window Popup
+
+getwindowHandle: * It returns only one session id. where driver is currently focusing.
+                 * The return type is String
+
+getwindowHandles: * It returns all browser session id running in execution.
+                  * The return type is set<String>
+
+
+package POPUPS;
+import java.time.Duration;
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class HandlingWindowsPopupEx1 {
+
+	public static void main(String[] args) {
+
+   WebDriver driver=new ChromeDriver();
+   driver.get("https://www.naukri.com/");
+   driver.manage().window().maximize();
+   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+   
+   WebElement txt = driver.findElement(By.xpath("//div[text()=\"Jobs\"]"));
+
+        Actions act = new Actions(driver);
+        act.moveToElement(txt).perform();
+	
+	driver.findElement(By.xpath("//div[text()=\"Jobs by skill\"]")).click();
+	driver.findElement(By.xpath("//div[text()=\"Services\"]")).click();
+	//driver.findElement(By.xpath("//span[text()=\"RESUME WRITING\"]")).click();
+	
+	     String mainWin = driver.getWindowHandle();//fetches current window Id
+	     System.out.println(mainWin);//win1
+	
+	     Set<String> allWin = driver.getWindowHandles();
+	     System.out.println(allWin);//win1, win2
+	
+	for (String win : allWin)
+	{
+		if(!mainWin.equals(win))
+		{
+			driver.switchTo().window(win);
+			driver.findElement(By.xpath("//span[text()=\"RESUME WRITING\"]")).click();
+		}
+	}
+}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WIndowHandlingEx2 {
+
+	public static void main(String[] args) {
+		 WebDriver driver=new ChromeDriver();
+		   driver.get("https://demo.automationtesting.in/Windows.html");
+		   driver.manage().window().maximize();
+		   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		   
+		   driver.findElement(By.xpath("//a[text()=\"Open New Seperate Windows\"]")).click();
+driver.findElement(By.xpath("//button[@class=\"btn btn-primary\"]")).click();
+	
+	String mainWin = driver.getWindowHandle();//fetches current window Id
+System.out.println(mainWin);//win1
+
+Set<String> allWin = driver.getWindowHandles();
+System.out.println(allWin);//win1, win2
+
+for (String win : allWin)
+{
+if(!mainWin.equals(win))
+{
+	driver.switchTo().window(win);
+	driver.findElement(By.xpath("//span[text()=\"Downloads\"]")).click();
+	}
+}}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import java.time.Duration;
+import java.util.Set;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WindowHandlingUsingTitleEx1 {
+
+	public static void main(String[] args) {
+	
+		 WebDriver driver=new ChromeDriver();
+		   driver.get("https://demo.automationtesting.in/Windows.html");
+		   driver.manage().window().maximize();
+		   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		   
+		   driver.findElement(By.xpath("//a[text()=\"Open New Seperate Windows\"]")).click();
+           driver.findElement(By.xpath("//button[@class=\"btn btn-primary\"]")).click();
+
+   Set<String> allWins = driver.getWindowHandles();//win1 , win2
+
+   for (String win : allWins)
+	    {
+	  driver.switchTo().window(win);
+      String title = driver.getTitle();
+	    System.out.println(title);
+	    if(title.contains("Selenium"))
+	    {
+	    	break;
+	    }
+	 }
+   driver.findElement(By.xpath("//a[text()=\"Read all about it!\"]")).click();
+  
+   Set<String> allWins1 = driver.getWindowHandles();//win1 win2 win3
+   
+   for (String win1 : allWins1)
+   {
+ driver.switchTo().window(win1);
+ String title1 = driver.getTitle();
+   System.out.println(title1);
+   if(title1.contains("WebDriver BiDi"))
+   {
+   	break;
+   }
+}
+   driver.findElement(By.xpath("//a[contains(text(),\"Get inspired\")]")).click();
+
+Set<String> allWins2 = driver.getWindowHandles();//win1 win2 win3
+   
+   for (String win2 : allWins2)
+   {
+ driver.switchTo().window(win2);
+ String title2 = driver.getTitle();
+   System.out.println(title2);
+   if(title2.contains("Frames & windows"))
+   {
+   	break;
+   }
+}
+	driver.findElement(By.xpath("//a[text()=\"Home\"]")).click();
+	
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package POPUPS;
+
+import java.time.Duration;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class WindowHAndlingUsingTitleEx2 {
+
+	public static void main(String[] args) {
+		
+		WebDriver driver=new ChromeDriver();
+		   driver.get("https://www.naukri.com/");
+		   driver.manage().window().maximize();
+		   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		   
+		   WebElement txt = driver.findElement(By.xpath("//div[text()=\"Jobs\"]"));
+
+		        Actions act = new Actions(driver);
+		        act.moveToElement(txt).perform();
+			
+			driver.findElement(By.xpath("//div[text()=\"Jobs by skill\"]")).click();
+          driver.findElement(By.xpath("//div[text()=\"Services\"]")).click();
+
+	      Set<String> allWin = driver.getWindowHandles();
+	
+	      for (String win : allWin)
+	      {
+			driver.switchTo().window(win);
+			String title = driver.getTitle();
+			System.out.println(title);
+			if(title.contains("Resume Writing Services"))
+			{
+				break;
+			}
+		}
+	
+	driver.findElement(By.xpath("//span[text()=\"FIND JOBS\"]")).click();
+}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hidden Division PopUp
+The screen which comes in webpage after some specific action is consider as Hidden Division PopUp
+* This popups are Undraggable
+* This Popups are inspectable means it can handle by webdriver directly 
+This is made by HTML Lang
+
+Note:- Calender popup Program
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Browser NAtive PopUp:-The popup which is given by browser not by application.
+This popup are Undragable.
+This popup are UnInspectable do webdriver cant handle it direct
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class BrowserNativePOpup {
+
+	public static void main(String[] args) {
+		
+		ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--incognito");
+		opt.addArguments("--disable-notifications");
+		
+		WebDriver driver=new ChromeDriver(opt);
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://www.irctc.co.in/nget/train-search");
+		
+	/*	ChromeOptions opt = new ChromeOptions();
+		opt.addArguments("--incognito");
+		
+		WebDriver driver=new ChromeDriver(opt);
+		driver.get("https://www.amazon.in");*/
+	}
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+

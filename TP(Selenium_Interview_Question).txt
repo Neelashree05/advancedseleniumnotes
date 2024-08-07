@@ -1,0 +1,92 @@
+Selenium-InterView Question
+----------------------------
+
+1.	Explain the Selenium Architecture.
+2.	Difference between Selenium-IDE & Selenium RC , WebDriver.
+3.	Difference between get(), navigate().to()
+4.      WEbdriver is an “interface” or Class ?
+5.	Difference between quit() & close()
+6.	How to maximixe & minimize the browser
+7.      What is Super interface for WebDriver
+8.	What is WebElement & explain all the Mtds available in WebElement
+9.	How to resize the browser?
+10.	How many locator are available in Webdriver , & which locator is preferred
+11.     Difference between Absolute xpath nd Relative Xpath
+12.	Difference between findelement & findelements
+13.     Difference between / and //
+14.     How To Position the Browser?
+15.     Difference b/w cssSelector and Xpath?
+
+Question on WebDriver wait statement  
+1.	What is Synchronization?
+2.	How to handle Synchronization wait  available in Webdriver
+3.	Which wait statement will be used to wait till page load.
+4.	Difference between thread wait , implicitly wait , explicitly wait
+5.	What is fluent wait/customwait
+
+Question DropDown &  keyboard & mouse operation
+1.	How to handle dropdown
+2.	List out all mtds available in Select class
+3.	How to capture all the value from the dropdown
+4.	How to take mouse over operation on the element
+5.	How to perform keyboard operation
+6.	How to perform “control+c”
+7.	Difference between build() & perform()
+8.	How to perform dragAndDrop Operation
+9.	How to perform rightClick operation
+10.     How to double click on an element?
+
+PopUps
+1.	How to work with new Tab, new Browse-window
+2.	How to work with new Tab, new Browse-window with our GetWindowHAnles() mtd
+3.	How to handle Alert popup
+4.	How to work Calender POP-up
+5.	How to authentication popup
+6.	How to handle File Upload Pop-up
+7.	How to handle Hidden Division PopUp
+8.      How to handle Browser Native PopUp
+
+Question Frame Handle
+1.	How to work with frame-Window.
+2.	How to Work with nested Frame
+3.	How to work with multiple frame
+4.	How many ways to work with frame
+5.	How to work frame , when frame does not have id & @name attribute.
+
+Data driven test
+1.	What is data driven test
+2.	Why data driven testing
+3.	Advantages of data driven testing
+4.	How to read data from excel
+5.	How to read data from properties file
+
+POM
+1.      What is POM?
+2.      Why POM?
+3.      Rules of the POM class?
+4.      Explain StaleElementException?
+5.      Explain Different B/w @FindBy,@FindBys and @FindAll?
+6.      Advantages and DisAdvantages of POM?
+
+TestNG
+
+1.	What is TestNG , why it is required 
+2.	Why testNG , why not Junit ?
+3.	What is Annotation, explain all the annotations?
+4.	What is batch execution,& how to achieve batch execution
+5.	Write Syntax of testng.Xml
+6.	What is grouping execution,& how to achieve group execution
+7.	What is parallel execution, & how to achieve parallel execution
+8.	How to achieve CROSS browser testing using Selenium
+9.	How to disable the testNg test scripts, when one class contains multiple @test method
+10.     What is ASSERTION, & how many assertion you used in real-time selenium testscripts , explain with real time EG
+11.	What is @parameter annotation in testNG , how to send parameter to testNG test
+12.	What is the @Listener annotation in TestNG
+13.	How to skip second test , when first test is failed ?
+14.	How to execute failed  test multiple times?
+
+	
+
+
+
+   

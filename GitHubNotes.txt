@@ -1,0 +1,401 @@
+GITHUB
+=> Definition: It’s a distributed cloud decentralized repository where we can maintain our 
+               sourceCode / Automation Framwork / CRS doc /build of the application in one place
+
+=> Softwares involved in Github
+There are 2 Software in GitREpository
+1. Git HUB:- Cloud based repository(software), which is used maintain the source code 
+             in one place, in order to use it just create an account with 
+             https://github.com
+2. Git [Git client]:- it’s a software should installed in client machine , which is 
+                      used to communicate to  GITHUB
+                      EG : EGit:- Eclipse Git, Installed with Eclipse, we can execute git 
+                                  commands through eclipse.
+                           GitDeskTop/GitBash:- Should be installed externally to execute git 
+                                                commands through cmd line
+=> Advantages of GitHub Cloud
+1. Since its cloud based repository , no need have maintenance team  to maintain the  
+   Software / HardWare
+2. Cloud means pay rent for what you use 
+3. Cloud software always access via internet
+4. Cloud System / sever physically not present within the Organization, but present 
+   virtually    
+5. Initial investment is not required for Software/ Physical location 
+6. Scale UP / Scale Down is easy 
+7. File Share between the team members is easier
+8. It provides remote access, it means anywhere contributors can access via internet
+9. Provide History for changes made by users & backup facility 
+10. GitHub also provide platform to review [pull request] the Code of Automaton test scripts  
+11. GitHub Also handle the conflict’s 
+12. Jenkins Always get the latest framework from the Git for batch Execution
+
+=> Why Git is Decentralized Repository?  
+-> There are Three stages in Git, start with "Working Diretory"->Local Repo->Global Repo
+
+=> Usage of github at different stages:
+1. Developers use github for: storage of source code
+2. DevOps use github for: storage of build versions
+3. Manual Testers use github for: storage of CRS and Manual test cases.
+4. Automation Testers use github for: storage of Framework
+
+=> Basic Git commands:
+1. commit: commit will copy the framework from working directory to local repository 
+           (.git folder created inside the project parent folder)
+2. Push: push will copy the framework from local repository or .git folder to github global 
+         repository with URL and Username and Password/Token
+3. Import+Clone URI: Import will get the framework from global repository to the local systems
+                     clone URI will create a folder in the same name as the framework URL in 
+                     local system, which act as local repository for further push actions.
+4. Pull: Pull will help us to get the changes pushed into the framework. we can use pull
+         only if the project is existing in the working directory ie.. it should be already
+         imported. Only imported projects can be pulled. 
+5. Merge: Merge command will be merge one branch at a time with the master
+6. Fork: Fork is a command which will create a copy of repository from different github account into your
+         github account.
+7. Pull Request: Its a intimation given by the automation tester who creates a branch to push
+                 the code to the manager/ team lead saying a new branch has been created.
+                 Later the manager will look into the branch, analyse the code/changes
+                 if there are no conflicts he will review and merge it into the master branch
+                 of the framework.
+
+=> What is Git conflict?
+-> When two or more engineers try to make changes in the same repository simultaneously, 
+   the first user trying to push the code will not face any issue, but when the second 
+   user is trying to push the code, github will throw conflict. which means, github thinks 
+   the second user is not aware of the changes made by the first user hence it gives conflict and doesnot 
+   allow second user to push.
+-> When there is a conflict, github will not accept the push, it will give rejection msg.
+
+=> How to resolve Git conflict?
+-> 1. Pull the code first before pushing
+   2. Remove all unwanted comments 
+   3. Analyse the code pushed by others, 
+   4. Then push it.
+
+=> What is branching in github?
+-> Everytime a new engineer joins the team, he will not be given collaborator right into 
+   the master branch of the framework without which he cannot push the code which he has 
+   written but he can pull the changes which others have written. So in order to push his
+   code, we prefer to push in seperate branch and any senior tester will review it and
+   merge it into the master framework 
+-> Branching avoids unneccessary conflicts
+-> Branching avoids codes written by new engineers which might affect the existing Framework
+-> Branching makes sure that the master copy is safe from the unreviewd changes.
+-> All the engineers will push their code in their branch and create a pull request to the
+   manager/ senior tester to review and merge it to master.
+-> The code present in master is only avaliable for pulling for all automation tester.
+  
+=> What is pull Request?
+-> Its a intimation given by the automation tester who creates a branch to push the code 
+   into the branch to the manager/ team lead saying a new branch has been created.
+-> Manager will get this intimation when ever any new branch has been created.
+-> Later the manager will look into the branch, analyse the code/changes if there are 
+   no conflicts he will review and merge it into the master branch of the framework.
+
+
+
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice
+$ git config --globcal user.name sanjaygit1
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice
+$ git init
+Initialized empty Git repository in C:/Users/Shobha/eclipse-AppiumWorkspace/GitBashPratice/.git/
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git remote add origin https://github.com/sanjaygit1/GitPratice.git
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .classpath
+        .project
+        .settings/
+        pom.xml
+        src/
+        target/
+        test-output/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git add .
+warning: LF will be replaced by CRLF in test-output/Default suite/Default test.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/Default suite/Default test.xml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/jquery-3.6.0.min.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/junitreports/TEST-Demo.SampleTest.xml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/classes.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/main.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/methods-alphabetical.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/methods-not-run.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/methods.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/Default suite/toc.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/old/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/testng-reports.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/testng-reports.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/testng-reports1.css.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/testng-reports2.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in test-output/testng.css.
+The file will have its original line endings in your working directory
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .classpath
+        new file:   .project
+        new file:   .settings/org.eclipse.jdt.core.prefs
+        new file:   .settings/org.eclipse.m2e.core.prefs
+        new file:   pom.xml
+        new file:   src/test/java/Demo/SampleTest.java
+        new file:   target/test-classes/Demo/SampleTest.class
+        new file:   test-output/Default suite/Default test.html
+        new file:   test-output/Default suite/Default test.xml
+        new file:   test-output/bullet_point.png
+        new file:   test-output/collapseall.gif
+        new file:   test-output/emailable-report.html
+        new file:   test-output/failed.png
+        new file:   test-output/index.html
+        new file:   test-output/jquery-3.6.0.min.js
+        new file:   test-output/junitreports/TEST-Demo.SampleTest.xml
+        new file:   test-output/navigator-bullet.png
+        new file:   test-output/old/Default suite/Default test.properties
+        new file:   test-output/old/Default suite/classes.html
+        new file:   test-output/old/Default suite/groups.html
+        new file:   test-output/old/Default suite/index.html
+        new file:   test-output/old/Default suite/main.html
+        new file:   test-output/old/Default suite/methods-alphabetical.html
+        new file:   test-output/old/Default suite/methods-not-run.html
+        new file:   test-output/old/Default suite/methods.html
+        new file:   test-output/old/Default suite/reporter-output.html
+        new file:   test-output/old/Default suite/testng.xml.html
+        new file:   test-output/old/Default suite/toc.html
+        new file:   test-output/old/index.html
+        new file:   test-output/passed.png
+        new file:   test-output/skipped.png
+        new file:   test-output/testng-reports.css
+        new file:   test-output/testng-reports.js
+        new file:   test-output/testng-reports1.css
+        new file:   test-output/testng-reports2.js
+        new file:   test-output/testng-results.xml
+        new file:   test-output/testng.css
+
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git commit -m "1st push"
+[master (root-commit) c1bf199] 1st push
+ 37 files changed, 1468 insertions(+)
+ create mode 100644 .classpath
+ create mode 100644 .project
+ create mode 100644 .settings/org.eclipse.jdt.core.prefs
+ create mode 100644 .settings/org.eclipse.m2e.core.prefs
+ create mode 100644 pom.xml
+ create mode 100644 src/test/java/Demo/SampleTest.java
+ create mode 100644 target/test-classes/Demo/SampleTest.class
+ create mode 100644 test-output/Default suite/Default test.html
+ create mode 100644 test-output/Default suite/Default test.xml
+ create mode 100644 test-output/bullet_point.png
+ create mode 100644 test-output/collapseall.gif
+ create mode 100644 test-output/emailable-report.html
+ create mode 100644 test-output/failed.png
+ create mode 100644 test-output/index.html
+ create mode 100644 test-output/jquery-3.6.0.min.js
+ create mode 100644 test-output/junitreports/TEST-Demo.SampleTest.xml
+ create mode 100644 test-output/navigator-bullet.png
+ create mode 100644 test-output/old/Default suite/Default test.properties
+ create mode 100644 test-output/old/Default suite/classes.html
+ create mode 100644 test-output/old/Default suite/groups.html
+ create mode 100644 test-output/old/Default suite/index.html
+ create mode 100644 test-output/old/Default suite/main.html
+ create mode 100644 test-output/old/Default suite/methods-alphabetical.html
+ create mode 100644 test-output/old/Default suite/methods-not-run.html
+ create mode 100644 test-output/old/Default suite/methods.html
+ create mode 100644 test-output/old/Default suite/reporter-output.html
+ create mode 100644 test-output/old/Default suite/testng.xml.html
+ create mode 100644 test-output/old/Default suite/toc.html
+ create mode 100644 test-output/old/index.html
+ create mode 100644 test-output/passed.png
+ create mode 100644 test-output/skipped.png
+ create mode 100644 test-output/testng-reports.css
+ create mode 100644 test-output/testng-reports.js
+ create mode 100644 test-output/testng-reports1.css
+ create mode 100644 test-output/testng-reports2.js
+ create mode 100644 test-output/testng-results.xml
+ create mode 100644 test-output/testng.css
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git push origin master
+Enumerating objects: 51, done.
+Counting objects: 100% (51/51), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (41/41), done.
+Writing objects: 100% (51/51), 47.08 KiB | 5.88 MiB/s, done.
+Total 51 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), done.
+To https://github.com/sanjaygit1/GitPratice.git
+ * [new branch]      master -> master
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git pull origin master
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), 853 bytes | 65.00 KiB/s, done.
+From https://github.com/sanjaygit1/GitPratice
+ * branch            master     -> FETCH_HEAD
+   c1bf199..4292d2d  master     -> origin/master
+Updating c1bf199..4292d2d
+Fast-forward
+ src/test/java/Demo/SampleTest.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/test/java/Demo/SampleTest.java
+        modified:   target/test-classes/Demo/SampleTest.class
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git add .
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   src/test/java/Demo/SampleTest.java
+        modified:   target/test-classes/Demo/SampleTest.class
+
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git commit -m "2nd push"
+[master 3082ddf] 2nd push
+ 2 files changed, 1 insertion(+)
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git push origin master
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (11/11), 790 bytes | 790.00 KiB/s, done.
+Total 11 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/sanjaygit1/GitPratice.git
+   4292d2d..3082ddf  master -> master
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git pull origin master
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (7/7), 861 bytes | 37.00 KiB/s, done.
+From https://github.com/sanjaygit1/GitPratice
+ * branch            master     -> FETCH_HEAD
+   3082ddf..f22839c  master     -> origin/master
+Updating 3082ddf..f22839c
+Fast-forward
+ src/test/java/Demo/SampleTest.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git branch branchone
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git checkout branchone
+Switched to branch 'branchone'
+M       target/test-classes/Demo/SampleTest.class
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (branchone)
+$ git status
+On branch branchone
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/test/java/Demo/SampleTest.java
+        modified:   target/test-classes/Demo/SampleTest.class
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (branchone)
+$ git add .
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (branchone)
+$ git status
+On branch branchone
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   src/test/java/Demo/SampleTest.java
+        modified:   target/test-classes/Demo/SampleTest.class
+
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (branchone)
+$ git push origin branchone
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'branchone' on GitHub by visiting:
+remote:      https://github.com/sanjaygit1/GitPratice/pull/new/branchone
+remote:
+To https://github.com/sanjaygit1/GitPratice.git
+ * [new branch]      branchone -> branchone
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (branchone)
+$ git checkout master
+Switched to branch 'master'
+M       src/test/java/Demo/SampleTest.java
+M       target/test-classes/Demo/SampleTest.class
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git merge branchone
+Already up to date.
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git push origin master
+Everything up-to-date
+
+Shobha@TYSS-Shobha MINGW64 ~/eclipse-AppiumWorkspace/GitBashPratice (master)
+$ git clone https://github.com/Senk111/SeleniumFrameWork.git
+Cloning into 'SeleniumFrameWork'...
+remote: Enumerating objects: 74, done.
+remote: Counting objects: 100% (74/74), done.
+remote: Compressing objects: 100% (49/49), done.
+remote: Total 74 (delta 17), reused 63 (delta 14), pack-reused 0
+Receiving objects: 100% (74/74), 57.18 KiB | 2.04 MiB/s, done.
+Resolving deltas: 100% (17/17), done.
+
+

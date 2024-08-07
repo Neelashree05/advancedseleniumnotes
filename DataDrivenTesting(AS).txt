@@ -1,0 +1,626 @@
+DataDrivenTesting
+-----------------
+
+What is Data driven testing?
+Read the data from external recourse & run the test is called Data driven testing (parameterization)
+
+What is Advantages of Data driven testing
+1.Maintenance of the test data is easy
+2.Modification of the test data in external recourse is easy 
+3.Running test scripts in different credentials is easy
+
+ Data driven testing from Properties File 
+1.	What is Properties File?
+Properties is java feature file where we can store the data in from of key & values pair,
+Key & value data type should be always string .
+
+2.	How to read data from properties File?
+•	Get the java representation Object of the Physical file using “FileInputSteam
+•	Create a Object of “Properties” class & load all the keys
+•	 Read the data using getProperty(“Key”)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FetchingDataFromProperties_File {
+
+	public static void main(String[] args) throws Throwable {
+		
+		WebDriver driver=new ChromeDriver();
+		
+        driver.manage().window().maximize();
+        
+        //HardCoding
+	/*	driver.get("https://www.saucedemo.com/v1/");
+     driver.findElement(By.id("user-name")).sendKeys("standard_user");
+     driver.findElement(By.id("password")).sendKeys("secret_sauce");
+     driver.findElement(By.id("login-button")).click();*/
+    
+    //fetching data from Properties file
+     
+     //step1:-get the java representation object of the physical file
+ //    FileInputStream fis = new FileInputStream("./src\\test\\resources\\FileCommomData.properties");
+        FileInputStream fis = new FileInputStream("C:\\Users\\Shobha\\Downloads\\FileCommomData.properties");
+        
+     //step2:-Create an object to properties class to load all the keys
+    Properties pro = new Properties();
+    pro.load(fis);
+    
+    //step3:-
+   String URL = pro.getProperty("url");
+   String USERNAME = pro.getProperty("username");
+   String PASSWORD = pro.getProperty("password");
+	
+   driver.get(URL);
+   driver.findElement(By.id("user-name")).sendKeys(USERNAME);
+   driver.findElement(By.id("password")).sendKeys(PASSWORD);
+   driver.findElement(By.id("login-button")).click();
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.Properties;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class InsertingDataToProperties_File {
+
+	public static void main(String[] args) throws Throwable {
+		
+		//writting data to property_file
+		Properties pro = new Properties();
+		pro.setProperty("username", "standard_user");
+		pro.setProperty("password", "secret_sauce");
+		pro.setProperty("url", "https://www.saucedemo.com/v1/");
+		
+	FileOutputStream fos = new FileOutputStream("./src\\test\\resources\\FileCommomData.properties");
+	pro.store(fos, "CommonData");
+	System.out.println("Data written Successfully");
+	
+	//-----------------------------------------------------------------------------------------------------------------------
+	//read data from property_file
+	
+	WebDriver driver=new ChromeDriver();
+	driver.manage().window().maximize();
+    
+ FileInputStream fis1 = new FileInputStream("./src\\test\\resources\\FileCommomData.properties");
+    
+  //step2:-Create an object to properties class to load all the keys
+ Properties pro1 = new Properties();
+ pro1.load(fis1);
+ 
+ //step3:-
+String URL = pro.getProperty("url");
+String USERNAME = pro.getProperty("username");
+String PASSWORD = pro.getProperty("password");
+	
+driver.get(URL);
+driver.findElement(By.id("user-name")).sendKeys(USERNAME);
+driver.findElement(By.id("password")).sendKeys(PASSWORD);
+driver.findElement(By.id("login-button")).click();
+	}
+
+}
+================================================================================================
+#CommonData
+#Wed May 29 10:32:37 IST 2024
+password=secret_sauce
+url=https\://www.saucedemo.com/v1/
+username=standard_user
+================================================================================================
+-------------------------------------------------------------------------------------------------------------------------------------------
+  Data driven testing from Excel File
+
+Apache Poi is the open source libraries used to get & write data from all Microsoft documents like Excel , docx , ppt etc
+In real time most the company preferred the keep the test script data in Excel, because data will be in well-organized manner , so that modification & maintenance is easier.
+
+********************************************************************************************
+  <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml</artifactId>
+    <version>5.2.5</version>
+</dependency>
+  
+  <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi</artifactId>
+    <version>5.2.5</version>
+</dependency>
+*********************************************************************************************
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class FetchingSingleDataFromExcel {
+
+	public static void main(String[] args) throws Throwable {
+	
+		//step1:- path connections
+FileInputStream fis = new FileInputStream("./src\\test\\resources\\ExcelTestData.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Sheet1");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(6);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(4);
+	
+	String ExcelData = cell.getStringCellValue();
+	System.out.println(ExcelData);
+	
+}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class InsertSingleDataToExcel {
+
+	public static void main(String[] args) throws Throwable {
+		
+		//step1:- path connections
+		FileInputStream fis = new FileInputStream("./src\\test\\resources\\ExcelTestData.xlsx");
+			   
+		       //step2:-open workbook in read mode
+			Workbook book = WorkbookFactory.create(fis);
+			
+			  //step3:-get the control of the Sheet
+			Sheet sheet = book.getSheet("Sheet1");
+			  
+			//step4:-get the control of the row
+			Row row = sheet.createRow(2);
+			
+                       //step5:-get the control of the cell 
+			Cell cell = row.createCell(5);
+			
+                        //step6:- insert /create value
+			cell.setCellValue("2024");
+			
+                       //step7:- keep work book in write mode
+			FileOutputStream fos = new FileOutputStream("./src\\test\\resources\\ExcelTestData.xlsx");
+			book.write(fos);
+			book.close();
+			
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+package DDT;
+
+import java.io.FileInputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class FetchingDataFromExcelUsingDataFormatter {
+
+	public static void main(String[] args) throws Throwable {
+		//step1:- path connections
+FileInputStream fis = new FileInputStream("./src\\test\\resources\\ExcelTestData.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Sheet1");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(0);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(0);
+	
+	//String ExcelData = cell.getStringCellValue();
+	//System.out.println(ExcelData);
+    DataFormatter format = new DataFormatter();
+    String ExcelData = format.formatCellValue(cell);
+	System.out.println(ExcelData);
+	
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.List;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WriteMultipleDataToExcel {
+
+	public static void main(String[] args) throws Throwable {
+		
+FileInputStream fis = new FileInputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+Workbook book = WorkbookFactory.create(fis);
+Sheet sheet = book.getSheet("Sheet3");
+	
+    WebDriver driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.get("https://www.amazon.in");
+	List<WebElement> allLinks = driver.findElements(By.xpath("//a"));
+	
+	for(int i=0;i<allLinks.size();i++)
+	{
+		Row row = sheet.createRow(i);
+		Cell cell = row.createCell(0);
+		cell.setCellValue(allLinks.get(i).getAttribute("href"));
+	}
+	FileOutputStream fos = new FileOutputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+	book.write(fos);
+	book.close();
+	}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class ReadMultipleDataFromExcel {
+
+	public static void main(String[] args) throws Throwable {
+		
+		FileInputStream fis = new FileInputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+		Workbook book = WorkbookFactory.create(fis);
+		Sheet sheet = book.getSheet("Sheet3");
+		int rowNum = sheet.getLastRowNum();
+		System.out.println(rowNum);
+   for (int i = 0; i < rowNum; i++)
+   {
+	Row row = sheet.getRow(i);
+	for (int j = 0; j <row.getLastCellNum() ; j++)
+	{
+		Cell cell = row.getCell(j);
+	//	String link = cell.getStringCellValue();
+	//	System.out.println(link);
+		DataFormatter format = new DataFormatter();
+		String link = format.formatCellValue(cell);
+		System.out.println(link);
+	}
+}
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class InsertDataToExcelUsingMap {
+
+	public static void main(String[] args) throws Throwable {
+		
+		FileInputStream fis = new FileInputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+        Workbook book = WorkbookFactory.create(fis);
+        Sheet sheet = book.getSheet("Sheet4");
+        
+      LinkedHashMap<String, String> map = new LinkedHashMap<String,String>();
+        map.put("10", "hyd");
+        map.put("20", "Bangalore");
+        map.put("30", "Goa");
+        map.put("40", "pune");
+        
+        int rowNo=0;
+        for(Entry<String, String> m:map.entrySet())//10,pune
+        {         //10,pune
+        	Row row = sheet.createRow(rowNo++);
+        	row.createCell(0).setCellValue((String)m.getKey());//10
+        	row.createCell(1).setCellValue((String)m.getValue());//pune
+        	}
+        FileOutputStream fos = new FileOutputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+        book.write(fos);
+        book.close();
+
+      //------------------------------------------------------------------------------------------------------------------
+        
+//        LinkedHashMap<Integer, String> map = new LinkedHashMap<Integer, String>();
+//    	map.put(10, "sanjay");
+//    	map.put(20, "shobha");
+//    	map.put(30, "kalpana");
+//    	map.put(40, "sachin");
+//    	map.put(50, "deepak");
+//    	
+//    	int rowNo=0;
+//    	
+//    	for(Entry<Integer, String> m:map.entrySet())
+//    	{
+//    		Row row = sheet.createRow(rowNo++);
+//    		row.createCell(0).setCellValue((Integer)m.getKey());
+//    		row.createCell(1).setCellValue((String)m.getValue());
+//    	}
+//    	FileOutputStream fout = new FileOutputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+//    	book.write(fout);
+//    	book.close();
+//    	System.out.println("data added successfully");
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.FileInputStream;
+import java.util.LinkedHashMap;
+import java.util.Map.Entry;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class FetchDataFromExcelUsingMap {
+
+	public static void main(String[] args) throws Throwable {
+		
+		FileInputStream fis = new FileInputStream("./src\\test\\resources\\ExcelTestData.xlsx");
+        Workbook book = WorkbookFactory.create(fis);
+        Sheet sheet = book.getSheet("Sheet2");
+        int rows = sheet.getLastRowNum();//50
+        System.out.println(rows);
+	
+       LinkedHashMap<String, String> map = new LinkedHashMap<String, String>();
+	
+       for(int i=0;i<=rows;i++)
+		{
+			String key = sheet.getRow(i).getCell(0).toString();
+			String value = sheet.getRow(i).getCell(1).toString();
+			map.put(key, value);
+		}
+		
+		for(Entry<String, String> m:map.entrySet())
+		{
+			System.out.println(m.getKey()+" "+m.getValue());
+		}
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Fetching Data From JSON_File
+==============================
+Write in NotePad
+-----------------------------
+{
+"username":"standard_user",
+"password":"secret_sauce",
+"url":"https://www.saucedemo.com/v1/"
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+  <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.17.1</version>
+</dependency>
+-----------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.File;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class FetchingDataFromJasonFile {
+
+	public static void main(String[] args) throws Throwable {
+		
+		File file = new File("./src\\test\\resources\\JsonFile.json");
+       
+		ObjectMapper jsonData = new ObjectMapper();
+        JsonNode data = jsonData.readTree(file);
+        
+       String URL = data.get("url").asText();
+		
+       WebDriver driver=new ChromeDriver();
+       driver.get(URL);
+       
+	}
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Fetching Data From PDF
+**********************
+<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+<dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.27</version>
+</dependency>
+---------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
+
+public class FetchingDataFromPDF_File {
+
+	public static void main(String[] args) throws Throwable {
+		
+File file = new File("./src\\test\\resources\\multipage-pdf.pdf");
+  
+           PDDocument doc = PDDocument.load(file);	
+	
+           int pages = doc.getNumberOfPages();
+	       System.out.println(pages);
+	       
+	       PDFTextStripper pdfData = new PDFTextStripper();
+	    //   String Data = pdfData.getText(doc);
+	    //   System.out.println(Data);
+	
+	    //   pdfData.setStartPage(4);
+	    //   String pageData = pdfData.getText(doc);
+	    //   System.out.println(pageData);
+	
+	       pdfData.setStartPage(2);
+	       pdfData.setEndPage(4);
+	       String pageData1 = pdfData.getText(doc);
+	       System.out.println(pageData1);
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
+DataBase:-
+What is JDBC ?
+           It’s a J2AEE API , which is used to connect to any data base from the java code 
+JDBC helps java program to store / retrieve data from the physical database
+In Real time, every application required data base to store/retrieve the user information in data base
+There are types of database 
+1.	  SQL Database 
+	Data will be stored in form of table 
+EG : mysql , MsSql , Oracle 11 g , DB2 , 
+
+2.	No SQL Database 
+	Data will be stored in the from JSON format
+EG : Mongo db ,  NoSQL.
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Types of Query 
+1.	Select query 
+2.	Non Select Query
+
+1.	Select Query 
+Any query start from select is called select query, it’s always retunes data in the form of table
+
+2.	Non Select Query
+Any query start from other than select is called non select query, it’s always retunes +-integer data
+ 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+<dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+</dependency>
+------------------------------------------------------------------------------------------------------------------------------------------------------
+package DDT;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import com.mysql.jdbc.Driver;
+
+public class FetchDataFromDataBase {
+
+	public static void main(String[] args) throws Throwable {
+	
+		//step1:- register/ load the mysql database
+		Driver driverRef = new Driver();
+        DriverManager.registerDriver(driverRef);
+        
+        //step2:-get connect to database
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/qspiders", "root", "root");
+        
+        //step3:-Create sql statement
+        Statement state = con.createStatement();
+	     String query = "select * from student";
+	
+	     //step4:-Execute Statement/Query 
+	     ResultSet result = state.executeQuery(query);
+	
+	     while (result.next())
+	     {
+ System.out.println(result.getInt(1) + "\t" + result.getString(2) + "\t" + result.getString(3) + "\t" + result.getString(4));
+		}
+	     //step5:- close database
+	     con.close();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package DataBaseJDBC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import com.mysql.jdbc.Driver;
+public class InsertDataToDataBase {
+public static void main(String[] args) throws SQLException {
+		
+	Driver driverRef = new Driver();
+	    DriverManager.registerDriver(driverRef);
+	
+	    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Qspiders_info", "root", "root");
+	Statement stat = connection.createStatement();
+
+String query = "insert into student_infom(first_name,last_name,address)values('shobha','rani','goa')";
+int result = stat.executeUpdate(query);
+	
+if(result==1)
+{
+	System.out.println("data updated");
+}
+else
+{
+	System.out.println("not updated");
+}
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------

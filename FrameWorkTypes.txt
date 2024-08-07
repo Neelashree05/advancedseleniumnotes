@@ -1,0 +1,130 @@
+FrameWork
+
+Definition:- FrameWork is a well-Organized Structure of reusable components where one driver(.xml) file will 
+             take care of the execution without manual intervention.
+
+Definition:-FrameWork is a collection of reusable components that makes automation development execution and modification easier
+             and faster.
+Definition:-Frame Work is a set of instruction followed by every organization that makes automation test engineer life easy.
+
+Types of FrameWork Approaches
+Two Types of FrameWork Approaches:
+
+1)TDD:-Test Driven Development
+-TestCases are mandatory
+-@Test is the driving factor for test script development.
+-TDD focuses on the implementation of the System
+-We use Programming language to write test cases like java.
+-Small Application we use
+-If Functionality changes impact is more
+
+2)BDD:-Behaviour Driven Development
+-Test Scenarios are mandatory.
+-@Given,@When and @Then are used for test script development
+-BDD explains the behaviour of the application for End users
+-Here we use Gherkin language like English
+-Big appliaction we use
+-If functionality changes impact is less than TDD
+
+Different types of FrameWOrk:-
+1)Data Driven FrameWork
+2)Modular Driven FrameWork
+3)Method Driven FrameWork
+4)KeyWord Driven FrameWork
+5)Hybrid FrameWork
+
+1)Data Driven FrameWork:-
+What?:-Reading data from any External Resources or reading data from data provider is called as Data driven Framework.
+       -Data is DRiven factor.
+WHy?:-Automation rule says never hardcode the data,read it from external resources.
+When?:-When ever the test Data is huge compared to test scenarios,We prefer data driven framework.
+External Resources like:-Properties_File,Json,ExcelSheet,PDF,DataBAse,TestNG(.xml),cmd(Maven).
+Examples:-Ecommerce, banking, Finance nd Travel etc.
+
+2)Modular Driven FrameWork:-
+What?:-Maintaining the test scripts,test data and suite xml file in module wise in order to make the debugging process easy 
+       is called as modular driven frameWork.
+Why?:-Code Modification and code maintaince is easy,Debugging is easy.
+when?:-WHen every the application is huge and  has lot of modules, maintaining all the modules together will be difficult, Hence we
+       prefer modular driven frameWork
+Examples:-ECommerce,CRM
+
+3)Method Driven FrameWork:
+WHat?:-Developing the resuable methods for all the repeative action/Functionalities in the application and calling those methods in the test script is called method driven framework.
+Why:-Method are reused, Test scripts are optimized
+When?:-WHen ever Application contains more repeated Functionalities like too many dropdowns,frames,Switiching window
+       Scrolling HAndling, we prefer Method Driven FrameWork
+Example:-ECommerce , CRM
+
+4)KeyWOrd Driven FrameWork:
+What?:-Creating a keyword library and utilising these keywords to develop the test scripts is called KeyWord Driven FrameWork.
+       Here KeyWord is the DRiven Factor
+why?:-If non coder should perform Automation
+when?:-When Ever the manual test engineers ,freshers have to perform automation,they would not be good at coding,hence we prefer
+       Keyword driven framework.WHere all the actions are converted into methods with user friendly method name so that they can call 
+       and perform the actions
+Examples:-short term Projects.
+
+5)Hybrid FrameWork:
+What?:-Combination of Two or more FrameWork is called as Hybrid Driven FrameWork.
+Why?:-SOme Application Will HAve Huge Data and also more number of modules so we have combine two features of frameWork to make the
+      frameWOrk user friendly we prefer Hybrid FrameWOrk.
+When?:-When ever the application demands to use more than one framework we use Hybrid frameWork.
+
+Note:-Hybrid= Data Driven + Modular Driven
+      Hybrid= Data Driven + Method Driven
+      Hybrid= Data Driven + Modular Driven + Method Driven
+      Hybrid= Data Driven + KeyWord Driven
+      Hybrid= Data Driven + KeyWord Driven + Modular Driven + Method Driven
+    
+
+  Advantages of FrameWork:
+-Test Script DEvelopment is faster and easier because of reusability
+-Modification and maintaince of data is easy because data is stored in external resources.
+-FrameWork provides automatic screenshot for failed scripts.
+-FrameWork Supports Multiple executions like ,Batch Execution,Regional Regression Execution,Distributed Parallel Execution
+and Cross Browser Execution.
+-FrameWork Generates Accurate Test Report for each execution
+-Optimizes the Test scripts
+
+DisAdvantages of FrameWork:
+-Should be good in programming
+-Initial frameWOrk Development cost and Time is High.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

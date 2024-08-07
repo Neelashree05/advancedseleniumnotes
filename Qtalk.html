@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://chat.qspiders.com/student-dashboard/QCO-SOEAJD-M15 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.rs-icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+.rs-icon[tabindex] {
+  cursor: pointer;
+}
+.rs-icon-spin {
+  -webkit-animation: icon-spin 2s infinite linear;
+          animation: icon-spin 2s infinite linear;
+}
+.rs-icon-pulse {
+  -webkit-animation: icon-spin 1s infinite steps(8);
+          animation: icon-spin 1s infinite steps(8);
+}
+.rs-icon-flip-horizontal {
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+.rs-icon-flip-vertical {
+  -webkit-transform: scaleY(-1);
+      -ms-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}</style><link rel="icon" href="https://chat.qspiders.com/favicon.ico"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000000"><meta name="description" content="Web site created using create-react-app"><link rel="apple-touch-icon" href="https://chat.qspiders.com/logo192.png"><link rel="manifest" href="https://chat.qspiders.com/manifest.json"><title>Qtalk</title><link rel="stylesheet" href="./Qtalk_files/css"><link rel="stylesheet" href="./Qtalk_files/icon"><script defer="defer" src="./Qtalk_files/main.528bb409.js.download"></script><link href="./Qtalk_files/main.02f79d98.css" rel="stylesheet"><style data-styled="active" data-styled-version="5.3.6"></style></head><body class=""><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"><section id="_navbar_navbarSection__56A0U"><article><div class="_navbar_logoBlock__RIMo6"><h1>Q<span>Talk</span></h1></div><nav class="_navbar_menuBlock__kXbEu"><ul><a href="https://testfreshers.qspiders.com/login" target="_blank" class="_navbar_HelpIcon__14l4m"><div class="_navbar_Help__MSW57"><svg height="24" viewBox="0 0 288 269" fill="none"><path d="M74.5 0.66C82.5 4.50075 101.385 6.95174 109.837 10.1984C123.135 15.3061 135.756 22.6037 145.706 31.2745C154.445 38.8897 161.761 47.728 167.214 57.0444C169.877 61.5955 171.673 69.0778 178.005 71.3639C183.809 73.4594 192.505 72.2834 198.731 72.2834H243.178C249.293 72.2834 259.956 73.834 264.555 69.84C269.75 65.3308 270.975 55.2022 272.882 49.4249C278.094 33.6418 286.721 17.008 287.625 0.66L74.5 0.66Z" fill="#1F8597"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M229.878 122H229.847V122.107L229.878 122ZM161 161.98L218.087 161.013L228.808 123H170.63L161 161.98Z" fill="#1F8597"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M60.1048 92.8336H0C0.0396622 76.7496 4.16191 61.0484 8.24305 45.5037C9.65936 40.1091 11.0707 34.7334 12.3048 29.367C12.6463 27.8834 12.9439 26.1241 13.2621 24.2424C14.3239 17.9645 15.616 10.3248 19.5391 7.01896C24.3185 2.99098 34.7135 3.91142 42.8752 4.6341C45.6361 4.87856 48.1414 5.1004 50.0873 5.1004C71.945 5.1004 95.3347 7.45355 115.616 17.3675C148.275 30.2955 167.891 56.4979 170.27 93C170.015 91.6011 169.705 90.1874 169.344 88.7632C169.582 90.1375 169.763 91.496 169.881 92.8336C170.544 100.341 168.311 107.984 166.147 115.389C165.238 118.5 164.341 121.568 163.677 124.567C159.807 142.041 155.558 159.4 151.31 176.759C148.869 186.732 146.429 196.705 144.06 206.7C140.655 221.07 137.4 235.212 134.189 249.633C133.975 250.594 133.778 251.637 133.573 252.722C132.629 257.718 131.517 263.598 127.84 266.381C123.451 269.705 115.67 269.107 109.226 268.612C107.125 268.451 105.166 268.3 103.514 268.3H41.7395C43.0055 257.8 45.7362 247.484 48.452 237.225C49.6651 232.643 50.8753 228.072 51.9506 223.5C55.2579 209.434 58.6317 195.388 62.0054 181.341C65.3538 167.4 68.7022 153.46 71.9855 139.5C72.4784 137.403 72.9614 135.306 73.4442 133.209C75.4132 124.658 77.3777 116.127 79.9828 107.767C80.1325 107.286 80.2995 106.788 80.4707 106.277C81.6119 102.87 82.9442 98.8931 80.6273 95.8267C77.4915 91.6782 69.8634 92.2204 64.131 92.6279C62.6176 92.7355 61.2364 92.8336 60.1048 92.8336Z" fill="#2F2F2F"></path></svg></div></a><a class="_navbar_HelpIcon__14l4m" href="https://chat.qspiders.com/student-dashboard/help"> <div class="_navbar_Help__MSW57"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M434.7 64h-85.9c-8 0-15.7 3-21.6 8.4l-98.3 90c-.1.1-.2.3-.3.4-16.6 15.6-16.3 40.5-2.1 56 12.7 13.9 39.4 17.6 56.1 2.7.1-.1.3-.1.4-.2l79.9-73.2c6.5-5.9 16.7-5.5 22.6 1 6 6.5 5.5 16.6-1 22.6l-26.1 23.9L504 313.8c2.9 2.4 5.5 5 7.9 7.7V128l-54.6-54.6c-5.9-6-14.1-9.4-22.6-9.4zM544 128.2v223.9c0 17.7 14.3 32 32 32h64V128.2h-96zm48 223.9c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16-7.2 16-16 16zM0 384h64c17.7 0 32-14.3 32-32V128.2H0V384zm48-63.9c8.8 0 16 7.2 16 16s-7.2 16-16 16-16-7.2-16-16c0-8.9 7.2-16 16-16zm435.9 18.6L334.6 217.5l-30 27.5c-29.7 27.1-75.2 24.5-101.7-4.4-26.9-29.4-24.8-74.9 4.4-101.7L289.1 64h-83.8c-8.5 0-16.6 3.4-22.6 9.4L128 128v223.9h18.3l90.5 81.9c27.4 22.3 67.7 18.1 90-9.3l.2-.2 17.9 15.5c15.9 13 39.4 10.5 52.3-5.4l31.4-38.6 5.4 4.4c13.7 11.1 33.9 9.1 45-4.7l9.5-11.7c11.2-13.8 9.1-33.9-4.6-45.1z"></path></svg></div></a><li class="_navbar_NavBlock__kbwVg"><div class="_navbar_Profile__mKuGy"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"></path></svg></div><button type="button">logout</button></li></ul></nav></article></section><div class="Toastify"></div><section id="_user_adminDashboardBlock__t-bpL"><article><aside class="_user_sidebarBlock__zrfnN"><ul><li class=""><a href="https://chat.qspiders.com/student-dashboard"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><polygon fill="#E8EAF6" points="42,39 6,39 6,23 24,6 42,23"></polygon><g fill="#C5CAE9"><polygon points="39,21 34,16 34,9 39,9"></polygon><rect x="6" y="39" width="36" height="5"></rect></g><polygon fill="#B71C1C" points="24,4.3 4,22.9 6,25.1 24,8.4 42,25.1 44,22.9"></polygon><rect x="18" y="28" fill="#D84315" width="12" height="16"></rect><rect x="21" y="17" fill="#01579B" width="6" height="6"></rect><path fill="#FF8A65" d="M27.5,35.5c-0.3,0-0.5,0.2-0.5,0.5v2c0,0.3,0.2,0.5,0.5,0.5S28,38.3,28,38v-2C28,35.7,27.8,35.5,27.5,35.5z"></path></svg></span><span class="_user_SideBarName__5U-IN">Batch List</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/studentgrouplist"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="#673AB7" d="M40,7H8c-2.2,0-4,1.8-4,4v26c0,2.2,1.8,4,4,4h5v-1.3c-0.6-0.3-1-1-1-1.7c0-1.1,0.9-2,2-2s2,0.9,2,2 c0,0.7-0.4,1.4-1,1.7V41h18v-1.3c-0.6-0.3-1-1-1-1.7c0-1.1,0.9-2,2-2s2,0.9,2,2c0,0.7-0.4,1.4-1,1.7V41h5c2.2,0,4-1.8,4-4V11 C44,8.8,42.2,7,40,7z"></path><g fill="#D1C4E9"><circle cx="24" cy="18" r="4"></circle><path d="M31,28c0,0-1.9-4-7-4c-5.1,0-7,4-7,4v2h14V28z"></path></g></svg></span><span class="_user_SideBarName__5U-IN"> Group List</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/Requirement"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g fill="#37474F"><rect x="9" y="20" width="30" height="13"></rect><ellipse cx="24" cy="33" rx="15" ry="6"></ellipse></g><path fill="#78909C" d="M23.1,8.2L0.6,18.1c-0.8,0.4-0.8,1.5,0,1.9l22.5,9.9c0.6,0.2,1.2,0.2,1.8,0l22.5-9.9c0.8-0.4,0.8-1.5,0-1.9 L24.9,8.2C24.3,7.9,23.7,7.9,23.1,8.2z"></path><g fill="#37474F"><path d="M43.2,20.4l-20-3.4c-0.5-0.1-1.1,0.3-1.2,0.8c-0.1,0.5,0.3,1.1,0.8,1.2L42,22.2V37c0,0.6,0.4,1,1,1 s1-0.4,1-1V21.4C44,20.9,43.6,20.5,43.2,20.4z"></path><circle cx="43" cy="37" r="2"></circle><path d="M46,40c0,1.7-3,6-3,6s-3-4.3-3-6s1.3-3,3-3S46,38.3,46,40z"></path></g></svg></span><span class="_user_SideBarName__5U-IN">Requirement</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/grooming"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"></path></svg></span><span class="_user_SideBarName__5U-IN">Grooming</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/Mock"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><g fill="#00BCD4"><rect x="19" y="22" width="10" height="20"></rect><rect x="6" y="12" width="10" height="30"></rect><rect x="32" y="6" width="10" height="36"></rect></g></svg></span><span class="_user_SideBarName__5U-IN">Mock</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/Profile"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span><span class="_user_SideBarName__5U-IN">Profile</span></a></li><li class=""><a href="https://chat.qspiders.com/student-dashboard/StudentStatus"><span class="_user_SideBarIcon__+x6lI"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><desc></desc><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95"></path><path d="M3.69 8.56a9 9 0 0 0 -.69 3.44"></path><path d="M3.69 15.44a9 9 0 0 0 1.95 2.92"></path><path d="M8.56 20.31a9 9 0 0 0 3.44 .69"></path><path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95"></path><path d="M20.31 15.44a9 9 0 0 0 .69 -3.44"></path><path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92"></path><path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69"></path></svg></span><span class="_user_SideBarName__5U-IN">Status</span></a></li></ul></aside><aside class="_user_mainadminBlock__VtVjr"><div style="width: 100%;"><div><section id="_chat_chatBoxSection__XXWLN"><article><aside class="_chat_chatMenu__1Mc0-"><div class="_chat_Head__QQFLe"><h1>Neelashree N </h1><h4>QCO-SOEAJD-M15</h4></div><div><div class="_chat_chatMenuWrapper__OJVSc"><span><input name="search" type="search" placeholder="Search"></span><span class="_chat_searchIcon__RHk1B"></span><div class="_chat_ConversationBlock__u58ad"><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>avinash - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>https://forms.gle/pV . . .</span></p></div><span class="_chat_time__IVt60">Today 1:01 PM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>PremaB - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>Interested candidate . . .</span></p></div><span class="_chat_time__IVt60">Today 11:59 AM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Nagarashmi - tracker</span><div class="_chat_notify__5ySt4"><span>2</span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>files[]</span></p></div><span class="_chat_time__IVt60">Today 11:40 AM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Shobha Rani B N - trainer</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>package Generic_Util . . .</span></p></div><span class="_chat_time__IVt60">Today 11:16 AM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>sheela - human resource</span><div class="_chat_notify__5ySt4"><span>3</span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>for the above Requir . . .</span></p></div><span class="_chat_time__IVt60">Yesterday 3:53 PM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Sanjay S - counselor,track. . .</span><div class="_chat_notify__5ySt4"><span>1</span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>Trainer Name : Shobh . . .</span></p></div><span class="_chat_time__IVt60">Saturday 8:30 PM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Reshmanaik - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span>Register here for th . . .</span></p></div><span class="_chat_time__IVt60">Friday 4:20 PM</span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Rashmi - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Priya - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>ammuhr - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>sffsf - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>hr22 - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>forincubteam - human resource</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Namratha - counselor</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Kavya K M - counselor</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div><div class="_chat_listUser__7px9Q" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7t0PfqiaGFMmJDHK4GReTM2kZBwY4dfB6EQ&amp;usqp=CAU&quot;); background-size: cover; background-repeat: no-repeat; border: 0.3px ridge rgb(153, 153, 153); border-radius: 6px; margin-bottom: 5px;"><div class="_chat_conversation__wGPeN"><span>Sahana Pawar - counselor</span><div class=""><span></span></div></div><div class="_chat_tickmark__SjNlz"><div><p class="_chat_lastmsg__RZR6G"><span></span></p></div><span class="_chat_time__IVt60"></span></div></div></div></div></div></aside><aside class="_chat_chatBox__xOtoP" style="background-image: url(&quot;/static/media/bg6.ad57afda8632b8d169ce.webp&quot;); background-size: cover; background-repeat: no-repeat;"><div><div class="_chat_chatBoxTop__mfifl"><main><div><h2><p class="_chat_Username__X9Svp">Shobha Rani B N</p><p id="_chat_offline__2hgMf">Offline</p> </h2><span>These chats are monitored by admin</span></div></main><div class="_chat_chatBoxStore__Eeu2S" id="scrollableDiv" style="height: 78vh; overflow: auto;"><div class="_chat_SpinnerBlock__GoDc7"> <button class="_chat_Spinner__XsmyE"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 6h-6l2.243-2.243c-1.133-1.133-2.64-1.757-4.243-1.757s-3.109 0.624-4.243 1.757c-1.133 1.133-1.757 2.64-1.757 4.243s0.624 3.109 1.757 4.243c1.133 1.133 2.64 1.757 4.243 1.757s3.109-0.624 4.243-1.757c0.095-0.095 0.185-0.192 0.273-0.292l1.505 1.317c-1.466 1.674-3.62 2.732-6.020 2.732-4.418 0-8-3.582-8-8s3.582-8 8-8c2.209 0 4.209 0.896 5.656 2.344l2.343-2.344v6z"></path></svg></button></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div></div><div><p>why am getting error here <br></p></div><div><time datetime="1717410940800">Jun 03 - 4:05 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div></div><div><p>how to resolve it mam <br></p></div><div><time datetime="1717410951493">Jun 03 - 4:05 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div></div><div><p>only first row and cell data is priniting <br></p></div><div><time datetime="1717410995615">Jun 03 - 4:06 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>1. Login to vtiger application-&gt;click on organizations link-&gt;click on create organization lookup image-&gt;Enter organisation name,phone number and email-&gt;click on save Btn-&gt;verify whether the organization is created in Organization Information page and Logout from the application. <br></p></div><div><time datetime="1717478291224">Jun 04 - 10:48 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p> Login to vtiger application-&gt;mouseOverOn more Link-&gt;click on campaigns-&gt;click on create campaign lookup image-&gt;Enter campaignName-&gt;click on save Btn-&gt;verify whether the campaign is created in campaign Information page and Logout from the application <br></p></div><div><time datetime="1717480293607">Jun 04 - 11:21 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p> Login to vtiger application-&gt;click on product link-&gt;click on create product lookup image-&gt;Enter product name-&gt;click on save Btn-&gt;verify whether the organization is created in Organization Information page and Logout from the application <br></p></div><div><time datetime="1717480375193">Jun 04 - 11:22 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p> Login to vtiger application-&gt;mouseOverOn more Link-&gt;click on campaigns-&gt;click on create campaign lookup image-&gt;Enter campaignName-&gt;Click on Product plus img-&gt;Handle the 
+PopUp-&gt;Product name should be added to campaign createpage-&gt;
+click on save Btn-&gt;verify whether the campaign is created in campaign Information page and Logout from the application. <br></p></div><div><time datetime="1717481789830">Jun 04 - 11:46 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div></div><div><p>
+
+	public static void main(String[] args) throws Throwable {
+
+		WebDriver driver = new ChromeDriver();
+		driver.get("<a href="http://localhost:8888/" target="_blank" rel="noopener noreferrer">http://localhost:8888/</a>");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys("admin");
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys("admin");
+		driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+
+		driver.findElement(By.partialLinkText("More")).click();
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("Campaigns")).click();
+		driver.findElement( By.cssSelector("[alt='Create Campaign...']")).click();
+
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("campaignname")).sendKeys("abcd1");
+		driver.findElement(By.cssSelector("[title='Select']")).click();
+
+		String mainWindowHandle = driver.getWindowHandle();
+		for(String childWindowHandle:driver.getWindowHandles())
+		{
+			if(!childWindowHandle.equals(mainWindowHandle))
+			{
+				driver.switchTo().window(childWindowHandle);
+				driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("search_text")).sendKeys("techpy");
+				driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("search")).click();
+				Thread.sleep(3000);
+				
+			}
+		}
+		driver.switchTo().window(mainWindowHandle);
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+		driver.findElement(By.linkText("Sign Out")).click();
+		driver.quit();
+	}
+ <br></p></div><div><time datetime="1717484285011">Jun 04 - 12:28 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div></div><div><p>done mam <br></p></div><div><time datetime="1717484337037">Jun 04 - 12:28 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>Hi guys, Today im on leave . There is no session <br></p></div><div><time datetime="1717561894895">Jun 05 - 10:01 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Campaign;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Random;
+import java.util.Set;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateCampaignWithProduct {
+
+	public static void main(String[] args) throws Throwable {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("<a href="http://localhost:8888/" target="_blank" rel="noopener noreferrer">http://localhost:8888/</a>");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys("admin");
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys("admin");
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+        driver.findElement(By.linkText("Products")).click();
+        driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+		//step1:- path connections
+FileInputStream fis = new FileInputStream("C:\\Users\\Shobha\\Documents\\ExcelTestData.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Sheet1");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(0);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(0);
+	
+	String ExcelData = cell.getStringCellValue();
+	System.out.println(ExcelData);
+    WebElement prdName = driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname"));
+    prdName.sendKeys(ExcelData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("campaignname")).sendKeys("Marketing"+ranNumber);
+       
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/select.gif']")).click();
+        
+        Set&lt;String&gt; wins = driver.getWindowHandles();
+      Iterator&lt;String&gt; it = wins.iterator();
+         while(it.hasNext())
+       {
+    	   String win = <a href="http://it.next/" target="_blank" rel="noopener noreferrer">http://it.next</a>();
+    	   driver.switchTo().window(win);
+    	   String currentTitle = driver.getTitle();
+    	   if(currentTitle.contains("Products&amp;action"))
+    	   {
+    		   break;
+    	   }
+       }
+        driver.findElement(By.xpath("//input[@id='search_txt']")).sendKeys(ExcelData);
+        driver.findElement(By.xpath("//input[@name='search']")).click();
+      
+        //Dynamic Xpath
+        driver.findElement(By.xpath("//a[text()='"+ExcelData+"']")).click(); 
+        
+     }
+
+}
+ <br></p></div><div><time datetime="1717653578362">Jun 06 - 11:29 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div><div class="_chat_StatusText__Dm-5-"></div></div><div><p>hi mam <br></p></div><div><time datetime="1717664198504">Jun 06 - 2:26 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div><div class="_chat_StatusText__Dm-5-"></div></div><div><p>can you please send assignment scenario <br></p></div><div><time datetime="1717664211863">Jun 06 - 2:26 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Campaign;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Iterator;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+import java.util.Set;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateCampaignWithProduct {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 WebDriver driver=new ChromeDriver();
+		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	     Properties pro = new Properties();
+	     pro.load(fis);
+	    
+	    String URL = pro.getProperty("url");
+	   String USERNAME = pro.getProperty("username");
+	   String PASSWORD = pro.getProperty("password");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+       
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+       
+        driver.findElement(By.linkText("Products")).click();
+        driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+		//step1:- path connections
+FileInputStream fis1 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis1);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Product");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(0);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(0);
+	
+	String productData = cell.getStringCellValue()+ranNumber;
+	
+	System.out.println(productData);
+    driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname")).sendKeys(productData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+    	//step1:- path connections
+        FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+        	   
+               //step2:-open workbook in read mode
+        	Workbook book1 = WorkbookFactory.create(fis2);
+        	
+        	  //step3:-get the control of the Sheet
+        	Sheet sheet1 = book1.getSheet("Campaign");
+        	
+        	//step4:- get control of the row
+        	Row row1 = sheet1.getRow(0);
+        	
+        	//step5:- get control of the cell
+        	Cell cell1 = row1.getCell(0);
+        	
+        	String campaignData = cell1.getStringCellValue()+ranNumber;
+        	
+        	System.out.println(campaignData);
+        
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("campaignname")).sendKeys(campaignData);
+       
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/select.gif']")).click();
+        
+        Set&lt;String&gt; wins = driver.getWindowHandles();
+      Iterator&lt;String&gt; it = wins.iterator();
+         while(it.hasNext())
+       {
+    	   String win = <a href="http://it.next/" target="_blank" rel="noopener noreferrer">http://it.next</a>();
+    	   driver.switchTo().window(win);
+    	   String currentTitle = driver.getTitle();
+    	   if(currentTitle.contains("Products&amp;action"))
+    	   {
+    		   break;
+    	   }
+       }
+        driver.findElement(By.xpath("//input[@id='search_txt']")).sendKeys(productData);
+        driver.findElement(By.xpath("//input[@name='search']")).click();
+      
+        //Dynamic Xpath
+        driver.findElement(By.xpath("//a[text()='"+productData+"']")).click(); 
+        
+        Set&lt;String&gt; wins1 = driver.getWindowHandles();
+        Iterator&lt;String&gt; it1 = wins1.iterator();
+           while(it1.hasNext())
+         {
+      	   String win1 = <a href="http://it1.next/" target="_blank" rel="noopener noreferrer">http://it1.next</a>();
+      	   driver.switchTo().window(win1);
+      	   String currentTitle1 = driver.getTitle();
+      	   if(currentTitle1.contains("Campaigns&amp;action"))
+      	   {
+      		   break;
+      	   }
+         }
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+     }
+
+}
+ <br></p></div><div><time datetime="1717735754210">Jun 07 - 10:19 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> vtiger installation process.pdf<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1717736461914">Jun 07 - 10:31 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>url <a href="http://localhost:8888/" target="_blank" rel="noopener noreferrer">http://localhost:8888/</a>
+username admin
+password admin <br></p></div><div><time datetime="1717737453504">Jun 07 - 10:47 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 WebDriver driver=new ChromeDriver();
+		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	     Properties pro = new Properties();
+	     pro.load(fis);
+	    
+	    String URL = pro.getProperty("url");
+	   String USERNAME = pro.getProperty("username");
+	   String PASSWORD = pro.getProperty("password");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+       
+        
+        driver.findElement(By.linkText("Organizations")).click();
+        driver.findElement(By.cssSelector("[alt='Create Organization...']")).click();
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+      //step1:- path connections
+        FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+        	   
+               //step2:-open workbook in read mode
+        	Workbook book1 = WorkbookFactory.create(fis2);
+        	
+        	  //step3:-get the control of the Sheet
+        	Sheet sheet1 = book1.getSheet("Organization");
+        	
+        	//step4:- get control of the row
+        	Row row1 = sheet1.getRow(0);
+        	
+        	//step5:- get control of the cell
+        	Cell cell1 = row1.getCell(0);
+        	
+        	String organizationData = cell1.getStringCellValue()+ranNumber;
+        	
+        	System.out.println(organizationData);
+        
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("accountname")).sendKeys(organizationData);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("phone")).sendKeys("9846546824");
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("email1")).sendKeys("<a href="mailto:adc@gmail.com" target="_blank" rel="noopener noreferrer">mailto:adc@gmail.com</a>");
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+ <br></p></div><div><time datetime="1717737958679">Jun 07 - 10:55 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateProductandDeletePrd {
+
+	public static void main(String[] args) throws Throwable {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+        Properties pro = new Properties();
+        pro.load(fis);
+        String URL = pro.getProperty("url");
+	    String USERNAME = pro.getProperty("username");
+	    String PASSWORD = pro.getProperty("password");
+	
+	    driver.get(URL);
+	    driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+	    driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+	    driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+	    
+	    driver.findElement(By.linkText("Products")).click();
+	    driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+	   
+	    Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+	    FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+ 	   
+        //step2:-open workbook in read mode
+ 	Workbook book1 = WorkbookFactory.create(fis2);
+ 	
+ 	  //step3:-get the control of the Sheet
+ 	Sheet sheet1 = book1.getSheet("Product");
+ 	
+ 	//step4:- get control of the row
+ 	Row row1 = sheet1.getRow(1);
+ 	
+ 	//step5:- get control of the cell
+ 	Cell cell1 = row1.getCell(1);
+ 	
+ 	String productData = cell1.getStringCellValue()+ranNumber;
+ 	
+ 	System.out.println(productData);
+  driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname")).sendKeys(productData);
+	driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();    
+	    
+	 driver.findElement(By.linkText("Products")).click(); 
+//	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='Product Name']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productData+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//input[@value='Delete']")).click();
+	    
+	    driver.switchTo().alert().accept();
+	    
+	    	}
+
+}
+ <br></p></div><div><time datetime="1717740314307">Jun 07 - 11:35 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> HardCoding(AS).txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1717741654704">Jun 07 - 11:57 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div><div class="_chat_StatusText__Dm-5-"></div></div><div><p>hi mam <br></p></div><div><time datetime="1717827484886">Jun 08 - 11:48 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div><div class="_chat_StatusText__Dm-5-"></div></div><div><p>qspider app is not working for me <br></p></div><div><time datetime="1717827495846">Jun 08 - 11:48 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_sendermsg__BlVWJ"><main><div><div class="_chat_StatusText__Dm-5-"></div></div><div><p>pls share excel file utility and implementation <br></p></div><div><time datetime="1717827509019">Jun 08 - 11:48 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" style="color: rgb(67, 160, 71);"><path fill="none" stroke-linecap="square" stroke-miterlimit="10" stroke-width="44" d="M465 127L241 384l-92-92m-9 93l-93-93m316-165L236 273"></path></svg></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> HardCoding(AS1).txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1717827541012">Jun 08 - 11:49 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>You guys can leave for the day <br></p></div><div><time datetime="1717827637164">Jun 08 - 11:50 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>some issuse in Qspiders platfrom. <br></p></div><div><time datetime="1717827659886">Jun 08 - 11:50 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>will continue on monday. Thank you  <br></p></div><div><time datetime="1717827677327">Jun 08 - 11:51 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Generic_Utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class Excel_Utility {
+
+	/**
+	 * it used to read data from excel
+	 * @param sheetName
+	 * @param rowNum
+	 * @param cellNum
+	 * @return
+	 * @throws Throwable
+	 * @author Shobha
+	 */
+	public  String getExcelData(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+  	String ExcelData = cell.getStringCellValue();
+	return ExcelData;
+	}
+	
+	public String readExcelDataUsingDataFormatter(String sheetName,int rowNum,int cellNum) throws Throwable
+	{
+		 FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	  	   
+         //step2:-open workbook in read mode
+  	Workbook book= WorkbookFactory.create(fis2);
+  	
+  	  //step3:-get the control of the Sheet
+  	Sheet sheet = book.getSheet(sheetName);
+  	
+  	//step4:- get control of the row
+  	Row row = sheet.getRow(rowNum);
+  	
+  	//step5:- get control of the cell
+  	Cell cell = row.getCell(cellNum);
+  	
+    DataFormatter format = new DataFormatter();
+	String ExcelData = format.formatCellValue(cell);
+	return ExcelData;
+		
+	}
+}
+ <br></p></div><div><time datetime="1717995047368">Jun 10 - 10:20 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 WebDriver driver=new ChromeDriver();
+		
+//		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+//	     Properties pro = new Properties();
+//	     pro.load(fis);
+//	    
+//	    String URL = pro.getProperty("url");
+//	    String USERNAME = pro.getProperty("username");
+//	    String PASSWORD = pro.getProperty("password");
+       
+		 File_Utility flib = new File_Utility();
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 driver.manage().window().maximize();
+		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+       
+        
+        driver.findElement(By.linkText("Organizations")).click();
+        driver.findElement(By.cssSelector("[alt='Create Organization...']")).click();
+       
+      //  Random ranNum = new Random();
+      //  int ranNumber = ranNum.nextInt(1000);
+       
+        //java_utility implementation
+        Java_Utility jlib = new Java_Utility();
+        int ranNum = jlib.getRandomNumber();
+      
+        //step1:- path connections
+//        FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+//        	   
+//               //step2:-open workbook in read mode
+//        	Workbook book1 = WorkbookFactory.create(fis2);
+//        	
+//        	  //step3:-get the control of the Sheet
+//        	Sheet sheet1 = book1.getSheet("Organization");
+//        	
+//        	//step4:- get control of the row
+//        	Row row1 = sheet1.getRow(0);
+//        	
+//        	//step5:- get control of the cell
+//        	Cell cell1 = row1.getCell(0);
+//        	
+//        	String organizationData = cell1.getStringCellValue()+ranNum;
+      
+        //excel_utility implementation
+        Excel_Utility elib = new Excel_Utility();
+     //   String organizationData = elib.getExcelData("Organization", 0, 0)+ranNum;
+        String organizationData = elib.readExcelDataUsingDataFormatter("Organization", 0, 0)+ranNum;
+        System.out.println(organizationData);
+        
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("accountname")).sendKeys(organizationData);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("phone")).sendKeys("9846546824");
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("email1")).sendKeys("<a href="mailto:adc@gmail.com" target="_blank" rel="noopener noreferrer">mailto:adc@gmail.com</a>");
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+ <br></p></div><div><time datetime="1717995071564">Jun 10 - 10:21 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>public String insertDataToExcel(String sheetName, int rowNum, int cellNum, String data) throws Throwable
+	{
+		FileInputStream fis = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		Workbook book = WorkbookFactory.create(fis);
+		Sheet sheet = book.getSheet(sheetName);
+		Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(cellNum);
+		cell.setCellValue(data);
+		FileOutputStream fos = new FileOutputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		book.write(fos);
+		book.close();
+		return null;
+		
+	} <br></p></div><div><time datetime="1717995980551">Jun 10 - 10:36 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>public void insertDataToExcel(String sheetName, int rowNum, int cellNum, String data) throws Throwable
+	{
+		FileInputStream fis = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		Workbook book = WorkbookFactory.create(fis);
+		Sheet sheet = book.getSheet(sheetName);
+		Row row = sheet.createRow(rowNum);
+		Cell cell = row.createCell(cellNum);
+		cell.setCellValue(data);
+		FileOutputStream fos = new FileOutputStream("./src/test/resources/ExcelSheet10am.xlsx");
+		book.write(fos);
+		book.close();
+	} <br></p></div><div><time datetime="1717996206110">Jun 10 - 10:40 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> GenericApproch.txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1718000847103">Jun 10 - 11:57 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class VtigerLoginPage {
+
+	//initialization
+	public VtigerLoginPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
+	}
+	
+	//Declaration
+	@FindBy(name="user_name")
+	private WebElement userTextField;
+	
+	@FindBy(name="user_password")
+	private WebElement passWordTextField;
+	
+	@FindBy(id="submitButton")
+	private WebElement loginButon;
+
+	//getterMethods
+	public WebElement getUserTextField() {
+		return userTextField;
+	}
+
+	public WebElement getPassWordTextField() {
+		return passWordTextField;
+	}
+
+	public WebElement getLoginButon() {
+		return loginButon;
+	}
+}
+ <br></p></div><div><time datetime="1718174064971">Jun 12 - 12:04 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Campaign;
+
+import java.time.Duration;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import objectRepository.VtigerLoginPage;
+
+public class CreateCampaign {
+
+	public static void main(String[] args) throws Throwable {
+		File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("chrome"))
+		 {
+			 WebDriverManager.chromedriver().setup();
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 WebDriverManager.firefoxdriver().setup();
+			 driver=new FirefoxDriver();
+		 }
+		 else
+		 {
+			 driver=new ChromeDriver();
+		 }
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.elementsToGetLoaded(driver);
+       
+		driver.get(URL);
+//		 driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+//        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+//        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+  
+		//VtigerLoginPage (POM Class Implementation)
+		VtigerLoginPage login = new VtigerLoginPage(driver);
+		login.getUserTextField().sendKeys(USERNAME);
+		login.getPassWordTextField().sendKeys(PASSWORD);
+		login.getLoginButon().click();
+		
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+        
+        int ranNum = jlib.getRandomNumber();
+        
+        String campaginName = elib.readExcelDataUsingDataFormatter("Campaign", 0, 0)+ranNum;
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("campaignname")).sendKeys(campaginName);
+       
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+ <br></p></div><div><time datetime="1718174101495">Jun 12 - 12:05 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>Pom Implementation <br></p></div><div><time datetime="1718284284397">Jun 13 - 6:41 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class VtigerLoginPage {
+
+	//initialization
+	public VtigerLoginPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
+	}
+	
+	//Declaration
+	@FindBy(name="user_name")
+	private WebElement userTextField;
+	
+	@FindBy(name="user_password")
+	private WebElement passWordTextField;
+	
+	@FindBy(id="submitButton")
+	private WebElement loginButon;
+
+	//getterMethods
+	public WebElement getUserTextField() {
+		return userTextField;
+	}
+
+	public WebElement getPassWordTextField() {
+		return passWordTextField;
+	}
+
+	public WebElement getLoginButon() {
+		return loginButon;
+	}
+	//Business Logics
+	/**
+	 * This method is used to launch the application
+	 * @param userName
+	 * @param passWord
+	 * @author Shobha
+	 */
+	public void loginToApp(String userName, String passWord)
+	{
+		userTextField.sendKeys(userName);
+		passWordTextField.sendKeys(passWord);
+		<a href="http://loginbuton.click/" target="_blank" rel="noopener noreferrer">http://loginButon.click</a>();
+	}
+}
+ <br></p></div><div><time datetime="1718284285935">Jun 13 - 6:41 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage {
+
+	//initilzation
+	public HomePage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Declaration
+	@FindBy(linkText = "Organizations")
+	private WebElement organizationLink;
+
+	@FindBy(linkText = "Products")
+	private WebElement productLink;
+	
+	@FindBy(linkText = "More")
+    private WebElement moreLink;	
+
+	@FindBy(linkText = "Campaigns")
+	private WebElement campaignsLink;
+	
+	
+	//gettermethods
+	public WebElement getOrganizationLink() {
+		return organizationLink;
+	}
+	
+	public WebElement getProductLink() {
+		return productLink;
+	}
+
+	public WebElement getMoreLink() {
+		return moreLink;
+	}
+
+	public WebElement getCampaignsLink() {
+		return campaignsLink;
+	}
+
+	//Business Logics
+	/**
+	 * this method is used to click organization link
+	 */
+    public void clickOrganizationLink()
+	{
+		<a href="http://organizationlink.click/" target="_blank" rel="noopener noreferrer">http://organizationLink.click</a>();
+	}
+    
+    /**
+     *  this method is used to click product link
+     */
+    public void clickProductLink()
+    {
+    	<a href="http://productlink.click/" target="_blank" rel="noopener noreferrer">http://productLink.click</a>();
+    }
+    
+    /**
+     *  this method is used to click more link
+     */
+    public void clickMoreLink()
+    {
+    	<a href="http://morelink.click/" target="_blank" rel="noopener noreferrer">http://moreLink.click</a>();
+    }
+    
+    /**
+     *  this method is used to click campaign link
+     */
+    public void clickCampaignLink()
+    {
+    	<a href="http://campaignslink.click/" target="_blank" rel="noopener noreferrer">http://campaignsLink.click</a>();
+    }
+}
+ <br></p></div><div><time datetime="1718284298775">Jun 13 - 6:41 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("cHRoMe"))
+		 {
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 driver=new FirefoxDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("edge"))
+		 {
+			 driver=new EdgeDriver();
+		 }
+		 else 
+			 
+		 {
+			 driver=new ChromeDriver();
+		 }
+		 
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		wlib.maximizeWindow(driver);
+		 wlib.waitForElementToLoad(driver);
+		
+        driver.get(URL);
+        VtigerLoginPage login = new VtigerLoginPage(driver);
+		login.loginToApp(USERNAME, PASSWORD);
+       
+        
+     //   driver.findElement(By.linkText("Organizations")).click();
+       
+        HomePage home = new HomePage(driver);
+        home.clickOrganizationLink();
+        
+        
+        driver.findElement(By.cssSelector("[alt='Create Organization...']")).click();
+      
+        int ranNum = jlib.getRandomNumber();
+     
+   //   String organizationData = elib.getExcelData("Organization", 0, 0)+ranNum;
+        String organizationData = elib.readExcelDataUsingDataFormatter("Organization", 0, 0)+ranNum;
+         
+        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("accountname")).sendKeys(organizationData);
+        String phoneNum = elib.readExcelDataUsingDataFormatter("Organization", 2, 1);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("phone")).sendKeys(phoneNum);
+        
+        String emailId = elib.readExcelDataUsingDataFormatter("Organization", 3, 1);
+        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("email1")).sendKeys(emailId);
+        
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        Thread.sleep(2000);
+        
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+ <br></p></div><div><time datetime="1718284322545">Jun 13 - 6:42 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> POM(Imp).txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1718343657707">Jun 14 - 11:10 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> GenericUtilities(Updated).txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1718344946132">Jun 14 - 11:32 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+public class CreateProductPage {
+
+	public CreateProductPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(xpath = "//img[@alt='Create Product...']")
+	private WebElement productPlusSign;
+  
+	@FindBy(name="productname")
+	private WebElement productNameTextField;
+	
+	@FindBy(xpath = "//input[@title='Save [Alt+S]']")
+	private WebElement saveButton;
+
+	public WebElement getProductPlusSign() {
+		return productPlusSign;
+	}
+
+	public WebElement getProductNameTextField() {
+		return productNameTextField;
+	}
+
+	public WebElement getSaveButton() {
+		return saveButton;
+	}
+	
+	public void clickOnPlusSign()
+	{
+		<a href="http://productplussign.click/" target="_blank" rel="noopener noreferrer">http://productPlusSign.click</a>();
+	}
+	public void enterProductName(String prdName)
+	{
+		productNameTextField.sendKeys(prdName);
+	}
+	public void clickSaveButton()
+	{
+		<a href="http://savebutton.click/" target="_blank" rel="noopener noreferrer">http://saveButton.click</a>();
+	}
+	
+}
+ <br></p></div><div><time datetime="1718429189051">Jun 15 - 10:56 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+public class CreateCampaignsPage {
+
+	public CreateCampaignsPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+@FindAll({@FindBy(xpath="//img[@title='Create Campaign...']"),@FindBy(css="[alt='Create Campaign...']")})
+private WebElement campPlusSign;
+
+@FindBy(name="campaignname")
+private WebElement campaignName;
+
+@FindBy(xpath = "//img[@src='themes/softed/images/select.gif']")
+private WebElement plusSignToNavigateProductPage;
+
+@FindBy(xpath = "//input[@title='Save [Alt+S]']")
+private WebElement saveButton;
+
+public WebElement getCampPlusSign() {
+	return campPlusSign;
+}
+
+public WebElement getCampaignName() {
+	return campaignName;
+}
+
+public WebElement getPlusSignToNavigateProductPage() {
+	return plusSignToNavigateProductPage;
+}
+
+public WebElement getSaveButton() {
+	return saveButton;
+}
+/**
+ * 
+ */
+public void clickCampPlusSign()
+{
+	<a href="http://campplussign.click/" target="_blank" rel="noopener noreferrer">http://campPlusSign.click</a>();
+}
+	
+public void enterCampName(String campName)
+{
+	campaignName.sendKeys(campName);
+}
+public void clickProductPlusSign()
+{
+	<a href="http://plussigntonavigateproductpage.click/" target="_blank" rel="noopener noreferrer">http://plusSignToNavigateProductPage.click</a>();
+}
+public void clickOnSaveButton()
+{
+	<a href="http://savebutton.click/" target="_blank" rel="noopener noreferrer">http://saveButton.click</a>();
+}
+
+}
+ <br></p></div><div><time datetime="1718429204582">Jun 15 - 10:56 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main style=""><div></div><div><p>package objectRepository;
+
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class WindowSwitingToProductPage {
+
+	public WindowSwitingToProductPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath = "//input[@id='search_txt']")
+	private WebElement productName;
+	
+	@FindBy(xpath = "//input[@name='search']")
+	private WebElement productSearch;
+
+	public WebElement getProductName() {
+		return productName;
+	}
+
+	public WebElement getProductSearch() {
+		return productSearch;
+	}
+	
+	public void enterProductName(String prdName)
+	{
+		productName.sendKeys(prdName);
+	}
+	public void searchPrdName()
+	{
+		<a href="http://productsearch.click/" target="_blank" rel="noopener noreferrer">http://productSearch.click</a>();
+	}
+	public void prdNamePresent(WebDriver driver,String productData)
+	{
+		driver.findElement(By.xpath("//a[text()='"+productData+"']")).click();
+	}
+	
+}
+ <br></p></div><div><time datetime="1718429216503">Jun 15 - 10:56 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main style=""><div></div><div><p>package Campaign;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Iterator;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+import java.util.Set;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import objectRepository.CreateCampaignsPage;
+import objectRepository.CreateProductPage;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+import objectRepository.WindowSwitingToProductPage;
+
+public class CreateCampaignWithProduct {
+
+	public static void main(String[] args) throws Throwable {
+		File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("chrome"))
+		 {
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 driver=new FirefoxDriver();
+		 }
+		 else
+		 {
+			 driver=new ChromeDriver();
+		 }
+        
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.waitForElementToLoad(driver);
+
+        driver.get(URL);
+//		 driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_name")).sendKeys(USERNAME);
+//        driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("user_password")).sendKeys(PASSWORD);
+//        driver.findElement(<a href="http://by.id/" target="_blank" rel="noopener noreferrer">http://By.id</a>("submitButton")).click();
+       
+        VtigerLoginPage login = new VtigerLoginPage(driver);
+		login.loginToApp(USERNAME, PASSWORD);
+       
+        int ranNumber = jlib.getRandomNumber();
+      
+    //    driver.findElement(By.linkText("Products")).click();
+       HomePage home = new HomePage(driver);
+       home.clickProductLink();
+       
+      CreateProductPage prdPage = new CreateProductPage(driver);
+      prdPage.clickOnPlusSign();
+     // driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+	String productData = elib.getExcelData("Product", 0, 0)+ranNumber;
+	prdPage.enterProductName(productData);
+	
+	<a href="https://driver.findelement/" target="_blank" rel="noopener noreferrer">//driver.findElement</a>(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname")).sendKeys(productData);
+	prdPage.clickSaveButton();
+//    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+      
+	
+     //   driver.findElement(By.linkText("More")).click();
+     //   driver.findElement(By.linkText("Campaigns")).click();
+        home.clickMoreLink();
+        home.clickCampaignLink();
+        
+      //  driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+        
+        CreateCampaignsPage campPage = new CreateCampaignsPage(driver);
+        campPage.clickCampPlusSign();
+       
+        String campaignData = elib.getExcelData("Campaign", 0, 0)+ranNumber;
+       //  driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("campaignname")).sendKeys(campaignData);
+         campPage.enterCampName(campaignData);
+       
+      //   driver.findElement(By.xpath("//img[@src='themes/softed/images/select.gif']")).click();
+         campPage.clickProductPlusSign();
+       
+         wlib.switchingWindows(driver, "Products&amp;action");
+        
+     //    driver.findElement(By.xpath("//input[@id='search_txt']")).sendKeys(productData);
+       
+         WindowSwitingToProductPage campPrdPage = new WindowSwitingToProductPage(driver);
+         campPrdPage.enterProductName(productData);
+        
+     //   driver.findElement(By.xpath("//input[@name='search']")).click();
+        campPrdPage.searchPrdName();
+        //Dynamic Xpath
+    //    driver.findElement(By.xpath("//a[text()='"+productData+"']")).click(); 
+        campPrdPage.prdNamePresent(driver, productData);
+      
+        wlib.switchingWindows(driver, "Campaigns&amp;action");
+        
+    //    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        campPage.clickOnSaveButton();
+      
+        Thread.sleep(2000);
+    //    driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+    //    driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+    home.logOutFromApp();
+	
+	}
+
+}
+ <br></p></div><div><time datetime="1718429226697">Jun 15 - 10:57 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import java.util.List;
+
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class DeletePrdValidationPage {
+
+	public DeletePrdValidationPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//input[@value='Delete']")
+	private WebElement deleteButton;
+	
+	public void deleteProduct(WebDriver driver, String productName)
+	{
+		 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productName+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	}
+	
+	public void clickOnDeleteButton()
+	{
+		<a href="http://deletebutton.click/" target="_blank" rel="noopener noreferrer">http://deleteButton.click</a>();
+	}
+	
+	public void validateProductDeleted(WebDriver driver, String productData)
+	{
+		 List&lt;WebElement&gt; productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()&gt;1]")); 
+	    	
+			boolean flag = false;
+			
+			for (WebElement prdName : productList)
+			{
+				String actData = prdName.getText();
+				if(actData.contains(productData))
+				{
+					flag=true;
+				   break;
+				}}
+			if(flag)
+			{
+				System.out.println("product data is deleted");
+			}
+			else
+			{
+				System.out.println("product data is not deleted");
+			}
+	}
+}
+ <br></p></div><div><time datetime="1718432167991">Jun 15 - 11:46 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.List;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import objectRepository.CreateProductPage;
+import objectRepository.DeletePrdValidationPage;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+
+public class CreateProductandDeletePrd {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		 
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("chrome"))
+		 {
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 driver=new FirefoxDriver();
+		 }
+		 else
+		 {
+			 driver=new ChromeDriver();
+		 }
+	     String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.elementsToGetLoaded(driver);
+		 driver.get(URL);
+		
+		 VtigerLoginPage login = new VtigerLoginPage(driver);
+		 login.loginToApp(USERNAME, PASSWORD);
+	    
+		HomePage home = new HomePage(driver);
+		home.clickProductLink();
+		
+	//	driver.findElement(By.linkText("Products")).click();
+		<a href="https://driver.findelement/" target="_blank" rel="noopener noreferrer">//driver.findElement</a>(By.xpath("//img[@alt='Create Product...']")).click();
+	   CreateProductPage prdPage = new CreateProductPage(driver);
+		prdPage.clickOnPlusSign();
+		
+		int ranNumber = jlib.getRandomNumber();
+	
+ 	  String productData = elib.readExcelDataUsingDataFormatter("Product", 1, 1)+ranNumber;
+ //	 driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname")).sendKeys(productData);
+ 	prdPage.enterProductName(productData);
+	
+ //	driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();    
+ 	prdPage.clickSaveButton();
+	
+ //	driver.findElement(By.linkText("Products")).click(); 
+ 	home.clickProductLink();
+//	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='Product Name']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+ 	DeletePrdValidationPage prdValidate = new DeletePrdValidationPage(driver);
+	// driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productData+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	 prdValidate.deleteProduct(driver, productData);
+	 
+	// driver.findElement(By.xpath("//input[@value='Delete']")).click();
+	 prdValidate.clickOnDeleteButton();
+	 wlib.alertAccept(driver);
+	//	  List&lt;WebElement&gt; productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()&gt;1]")); 
+//	    	
+//	boolean flag = false;
+//	
+//	for (WebElement prdName : productList)
+//	{
+//		String actData = prdName.getText();
+//		if(actData.contains(productData))
+//		{
+//			flag=true;
+//		   break;
+//		}}
+//	if(flag)
+//	{
+//		System.out.println("product data is deleted");
+//	}
+//	else
+//	{
+//		System.out.println("product data is not deleted");
+//	}
+	 prdValidate.validateProductDeleted(driver, productData);
+//	wlib.alertAccept(driver);
+//       driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+ //      driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+       home.logOutFromApp();
+	}
+
+}
+ <br></p></div><div><time datetime="1718432176993">Jun 15 - 11:46 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package objectRepository;
+
+import java.util.List;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import Generic_Utilities.WebDriver_utility;
+
+public class DeletePrdValidationPage {
+
+	public DeletePrdValidationPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(xpath = "//input[@value='Delete']")
+	private WebElement deleteButton;
+	
+	public void deleteProduct(WebDriver driver, String productName)
+	{
+		 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productName+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	}
+	
+	public void clickOnDeleteButton(WebDriver_utility wlib,WebDriver driver) throws InterruptedException
+	{
+		<a href="http://deletebutton.click/" target="_blank" rel="noopener noreferrer">http://deleteButton.click</a>();
+		Thread.sleep(3000);
+		 wlib.alertAccept(driver);
+		 Thread.sleep(3000);
+	}
+	
+	public void validateProductDeleted(WebDriver driver, String productName)
+	{
+		boolean flag = false;
+		 List&lt;WebElement&gt; productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()&gt;1]")); 
+			for (WebElement prdName : productList)
+			{
+				String actData = prdName.getText();
+			//	System.out.println(actData);
+				if(actData.contains(productName))
+				{
+					flag=true;
+				   break;
+				}}
+			if(flag)
+			{
+				System.out.println("product data is not deleted");
+			}
+			else
+			{
+				System.out.println("product data is deleted");
+			}
+	}
+}
+ <br></p></div><div><time datetime="1718600294361">Jun 17 - 10:28 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.List;
+import <a href="http://java.util.properties/" target="_blank" rel="noopener noreferrer">http://java.util.Properties</a>;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import <a href="http://org.openqa.selenium.by/" target="_blank" rel="noopener noreferrer">http://org.openqa.selenium.By</a>;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import objectRepository.CreateProductPage;
+import objectRepository.DeletePrdValidationPage;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+
+public class CreateProductandDeletePrd {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		 
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("chrome"))
+		 {
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 driver=new FirefoxDriver();
+		 }
+		 else
+		 {
+			 driver=new ChromeDriver();
+		 }
+	     String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		 wlib.maximizeWindow(driver);
+		 wlib.elementsToGetLoaded(driver);
+		 driver.get(URL);
+		
+		 VtigerLoginPage login = new VtigerLoginPage(driver);
+		 login.loginToApp(USERNAME, PASSWORD);
+	    
+		HomePage home = new HomePage(driver);
+		home.clickProductLink();
+		
+	//	driver.findElement(By.linkText("Products")).click();
+		<a href="https://driver.findelement/" target="_blank" rel="noopener noreferrer">//driver.findElement</a>(By.xpath("//img[@alt='Create Product...']")).click();
+	   CreateProductPage prdPage = new CreateProductPage(driver);
+		prdPage.clickOnPlusSign();
+		
+		int ranNumber = jlib.getRandomNumber();
+	
+ 	  String productData = elib.readExcelDataUsingDataFormatter("Product", 1, 1)+ranNumber;
+ //	 driver.findElement(<a href="http://by.name/" target="_blank" rel="noopener noreferrer">http://By.name</a>("productname")).sendKeys(productData);
+ 	prdPage.enterProductName(productData);
+	
+ //	driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();    
+ 	prdPage.clickSaveButton();
+	
+ //	driver.findElement(By.linkText("Products")).click(); 
+ 	home.clickProductLink();
+//	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='Product Name']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+ 	DeletePrdValidationPage prdValidate = new DeletePrdValidationPage(driver);
+	// driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productData+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	 prdValidate.deleteProduct(driver, productData);
+	 
+	// driver.findElement(By.xpath("//input[@value='Delete']")).click();
+	 prdValidate.clickOnDeleteButton(wlib, driver);
+	
+	//	  List&lt;WebElement&gt; productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()&gt;1]")); 
+//	    	
+//	boolean flag = false;
+//	
+//	for (WebElement prdName : productList)
+//	{
+//		String actData = prdName.getText();
+//		if(actData.contains(productData))
+//		{
+//			flag=true;
+//		   break;
+//		}}
+//	if(flag)
+//	{
+//		System.out.println("product data is deleted");
+//	}
+//	else
+//	{
+//		System.out.println("product data is not deleted");
+//	}
+	// System.out.println("pdata"+productData);
+	 prdValidate.validateProductDeleted(driver, productData);
+//	wlib.alertAccept(driver);
+//       driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+ //      driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+       home.logOutFromApp();
+	}
+
+}
+ <br></p></div><div><time datetime="1718600323886">Jun 17 - 10:28 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><img src="./Qtalk_files/thumbnail-TestNg-1718604579357.png" alt="" style="width: 200px; height: 130px; border-radius: 5px; display: flex;"><button class="_chat_btndownload__KFsU1"><span class="_chat_Download__CbbyM">download</span></button></div><div><time datetime="1718604579607">Jun 17 - 11:39 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><button class="_chat_btndownload1__KI4W+"> POM(AS-Updated).txt<span class="_chat_Download__CbbyM">Click to download</span></button></div><div><time datetime="1718609087277">Jun 17 - 12:54 pm</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div><div class="_chat_Messageeee__VdYo7"><div class="_chat_recivermsg__1k-r+"><main><div></div><div><p>package Generic_Utilities;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+public class BaseClass {
+
+	@BeforeSuite
+	public void bs()
+	{
+		System.out.println("DataBase Connection");
+	}
+	@BeforeTest
+	public void bt()
+	{
+		System.out.println("parallel execution");
+	}
+	@BeforeClass
+	public void bc()
+	{
+		System.out.println("Browser launched");
+	}
+	@BeforeMethod
+	public void bm()
+	{
+		System.out.println("login to Application");
+	}
+	@AfterMethod
+	public void am()
+	{
+		System.out.println("logout from application");
+	}
+	@AfterClass
+	public void ac()
+	{
+		System.out.println("close browser");
+	}
+	@AfterTest
+	public void at()
+	{
+		System.out.println("parallel execution done");
+	}
+	@AfterSuite
+	public void as()
+	{
+		System.out.println("close database");
+	}
+}
+ <br></p></div><div><time datetime="1718689598717">Jun 18 - 11:16 am</time><span class="_chat_BatchGroup__JJ102">QCO-SOEAJD-M15</span></div></main></div></div></div></div><form class="_chat_FormBlock__4T7zI"><div class="_chat_chatBoxBottom__WqOIM"><input name="message" id="message" class="chatMessageInput" placeholder="write something..." value=""><aside class="_chat_UploadfileContainer__WSWxy" style="position: relative;"><div role="toolbar" class="rs-btn-toolbar rs-stack" style="align-items: center; flex-wrap: wrap; gap: 10px;"><svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16" class="rs-stack-item" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.404 5.11l-1.015-1.014-5.075 5.074c-0.841 0.841-0.841 2.204 0 3.044s2.204 0.841 3.045 0l6.090-6.089c1.402-1.401 1.402-3.673 0-5.074s-3.674-1.402-5.075 0l-6.394 6.393c-0.005 0.005-0.010 0.009-0.014 0.013-1.955 1.955-1.955 5.123 0 7.077s5.123 1.954 7.078 0c0.004-0.004 0.008-0.009 0.013-0.014l0.001 0.001 4.365-4.364-1.015-1.014-4.365 4.363c-0.005 0.004-0.009 0.009-0.013 0.013-1.392 1.392-3.656 1.392-5.048 0s-1.392-3.655 0-5.047c0.005-0.005 0.009-0.009 0.014-0.013l-0.001-0.001 6.395-6.393c0.839-0.84 2.205-0.84 3.045 0s0.839 2.205 0 3.044l-6.090 6.089c-0.28 0.28-0.735 0.28-1.015 0s-0.28-0.735 0-1.014l5.075-5.075z"></path></svg></div></aside><aside class="_chat_AudioBlock__+T-NB"><div><main class="_chat_StartAudio__C8Bxr"><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0V3z"></path><path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"></path></svg></span></main><div class="_chat_recordingAnimation__4TXFQ "></div></div></aside><div><button type="button" class="chatSubmitButton">Send</button><button type="submit" class="chatSubmitButton" style="display: none;">Send</button></div></div></form></div></aside></article></section></div></div></aside></article></section> </div></body></html>

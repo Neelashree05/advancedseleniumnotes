@@ -1,0 +1,322 @@
+package Generic_Utilities;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class WebDriver_utility {
+
+	/**
+	 * this method is used for maximizing window
+	 * @param driver
+	 * @author Shobha
+	 */
+	public void maximizeWindow(WebDriver driver)
+	{
+		driver.manage().window().maximize();
+	}
+	
+	/**
+	 * this method is used to wait all elements to get loaded in GUI
+	 * version3
+	 * @param driver
+	 */
+	public void waitForElementToLoad(WebDriver driver)
+	{
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);	
+	}
+	
+	/**
+	 * this method is used to wait all elements to get loaded in GUI
+	 * version4
+	 * @param driver
+	 */
+	public void elementsToGetLoaded(WebDriver driver)
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	/**
+	 * this method is used to switch windows
+	 * @param driver
+	 * @param particalText
+	 */
+	public  void switchingWindows(WebDriver driver,String particalText)
+	{
+		 Set<String> wins = driver.getWindowHandles();
+	      Iterator<String> it = wins.iterator();
+	         while(it.hasNext())
+	       {
+	    	   String win = it.next();
+	    	   driver.switchTo().window(win);
+	    	   String currentTitle = driver.getTitle();
+	    	   if(currentTitle.contains(particalText))
+	    	   {
+	    		   break;
+	    	   }
+	       }
+	}
+	/**
+	 * this method is used to accept the alert popup
+	 * @param driver
+	 */
+	public void alertAccept(WebDriver driver)
+	{
+		driver.switchTo().alert().accept();
+	}
+	
+	/** this method is used to dismiss the alert popup
+	 * 
+	 * @param driver
+	 */
+	public void alertDismiss(WebDriver driver)
+	{
+		driver.switchTo().alert().dismiss();
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByIndex)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByIndexApproch(WebElement ele, int value)
+	{
+		Select select = new Select(ele);
+		select.selectByIndex(value);
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByValue)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByValueApproch(WebElement ele, String value)
+	{
+		Select select = new Select(ele);
+		select.selectByValue(value);
+	}
+	
+	/**
+	 * this method is used to handle drop down using Select class(SelectByValue)
+	 * @param ele
+	 * @param value
+	 */
+	public void selectByVisibleTextApproch(WebElement ele, String text)
+	{
+		Select select = new Select(ele);
+		select.selectByVisibleText(text);
+	}
+	/**
+	 * This method is used to move the cursor to a particular element
+	 * @param driver
+	 * @param ele
+	 */
+	public void moveToElement(WebDriver driver,WebElement ele)
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(ele).perform();
+	}
+	public static void takeScreenShot(WebDriver driver) throws Throwable
+	{
+//		TakesScreenshot takesSceenShot = (TakesScreenshot) driver;
+//		File src = takesSceenShot.getScreenshotAs(OutputType.FILE);
+//		File dst = new File("./ScreenShots/" + screenShotName +".png");
+//		FileUtils.copyFile(src, dst);
+//		return dst.getAbsolutePath();
+		TakesScreenshot takesSceenShot = (TakesScreenshot) driver;
+		File src = takesSceenShot.getScreenshotAs(OutputType.FILE);
+		LocalDateTime dateTime = LocalDateTime.now();
+		String currentDateTime = dateTime.toString().replace(":", "_").replace(" ", "_");
+		File dst = new File("./ScreenShots/" +"screenShotName"+currentDateTime+".png");
+		try {
+			FileUtils.copyFile(src, dst);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//return screenShotName;
+		
+	}
+	
+	public static String takeScreenShot(WebDriver driver, String screenShotName) throws Throwable {
+		
+		TakesScreenshot takesSceenShot = (TakesScreenshot) driver;
+		File src = takesSceenShot.getScreenshotAs(OutputType.FILE);
+		File dst = new File("./ScreenShots/" + screenShotName +".png");
+		FileUtils.copyFile(src, dst);
+		return dst.getAbsolutePath();
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.0.9</version>
+</dependency>
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package Generic_Utilities;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+public class ListenerImplementation implements ITestListener 
+{
+
+	 ExtentReports report;
+	 ExtentTest test;
+	
+    public void onTestStart(ITestResult result) {
+		test=report.createTest(result.getName());
+		
+	}
+
+	public void onTestSuccess(ITestResult result)
+	{
+	test.log(Status.PASS, result.getMethod().getMethodName());
+	test.log(Status.PASS, result.getThrowable());
+		
+	}
+
+	public void onTestFailure(ITestResult result){
+		
+        test.log(Status.FAIL, result.getMethod().getMethodName());
+		test.log(Status.FAIL, result.getThrowable());
+		
+		System.out.println("<--------I am Listening----------->");
+		 
+		String screenShot=null;
+		
+			try {
+screenShot = WebDriver_utility.takeScreenShot(BaseClass.sDriver, result.getMethod().getMethodName());
+			} catch (Throwable e) {
+				
+				e.printStackTrace();
+			}
+	
+		test.addScreenCaptureFromPath(screenShot);
+	
+	}
+
+	public void onTestSkipped(ITestResult result)
+	{
+		test.log(Status.SKIP,result.getMethod().getMethodName());
+		test.log(Status.SKIP, result.getThrowable());
+	}
+
+	public void onStart(ITestContext context) {
+		
+		Java_Utility jlib = new Java_Utility();
+		int ranNum = jlib.getRandomNumber();
+		
+ExtentSparkReporter spark = new ExtentSparkReporter("ExtentReport/Report.html"+ranNum);
+spark.config().setTheme(Theme.STANDARD);
+spark.config().setDocumentTitle("Testing");
+spark.config().setReportName("Shobha");package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+
+import Generic_Utilities.BaseClass;
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import objectRepository.CreateOrganizationPage;
+import objectRepository.CreateProductPage;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+@Listeners(Generic_Utilities.ListenerImplementation.class)
+public class CreateOrganizationTest extends BaseClass{
+
+	@Test//(groups = {"smokeTest","regressionTest"})
+	//@Test(retryAnalyzer = Generic_Utilities.RetryImplementation.class)
+	public void createOrganizationTest() throws Throwable {
+  HomePage home = new HomePage(driver);
+  home.clickOrganizationLink();
+ 
+ CreateOrganizationPage orgPage = new CreateOrganizationPage(driver);
+  orgPage.clickOrgPlusSign();
+  Assert.assertEquals(false, true);
+  int ranNum = jlib.getRandomNumber();
+  String organizationData = elib.readExcelDataUsingDataFormatter("Organization", 0, 0)+ranNum;
+  String phoneNum = elib.readExcelDataUsingDataFormatter("Organization", 2, 1);
+  String emailId = elib.readExcelDataUsingDataFormatter("Organization", 3, 1); 
+  orgPage.orgData(organizationData, phoneNum, emailId);
+//  Assert.fail();
+ orgPage.clickOnSaveButton();
+  Thread.sleep(2000);
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+<listener class-name="Generic_Utilities.ListenerImplementation"/>
+</listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="Organization.CreateOrganizationTest"/>
+    <class name="Product.CreateProductTest"/>
+    <class name="Campaign.CreateCampaignTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//system configuration
+report=new ExtentReports();
+	
+report.attachReporter(spark);
+report.setSystemInfo("platform", "windows10");
+report.setSystemInfo("executed by", "shobha");
+report.setSystemInfo("reviewed by", "rathin");
+}
+public void onFinish(ITestContext context) {
+		report.flush();
+	}
+
+
+	
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

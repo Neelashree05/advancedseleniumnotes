@@ -1,0 +1,28 @@
+To stop other databases-> go to service->search for database->select database->in the right side click on stop
+
+MYSQL
+
+open browser -> search for mysql 5.5.62 download->open the downloaded file
+
+
+root
+root
+
+successfully installed ->to open->search for mysql
+
+
+password is root
+
+
+
+* show databases;  -> gives the list of databases in the mysql
+
+* create database:->create database Qspiders;
+
+* To Check database created or not:->show databases;
+
+* To use database:->use qspiders;
+
+* To Create the table in database:->create table student(id INT NOT NULL AUTO_INCREMENT,first_name VARCHAR(100)NOT NULL,last_name VARCHAR(50)NOT NULL,address VARCHAR(100)NOT NULL,PRIMARY KEY(id));
+
+* To insert Data To Table:-insert into student(first_name,last_name,address)values('shobha','rani','Banglore');

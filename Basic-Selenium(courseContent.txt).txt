@@ -1,0 +1,59 @@
+Basic-Selenium
+Content:-
+
+Introduction to Automation
+*What is Automation
+*Advantages and Disadvantages of Automation
+*when do we go for Automation
+
+Introduction to Selenium
+*What is Selenium
+*Selenium version-3
+*Selenium version-4
+*Selenium java Architecture
+*Languages supported by Selenium
+*PlatForms supported by Selenium
+*Launching Multiple Browsers(chrome,firefox,edge etc)
+*Selenium WebDriver Methods
+
+Locators
+*What are Locators?Types
+*8Types of Locators
+
+Handling WebElement Methods
+18+Methods
+-----------------------------------------------------------------------------------------------------------------------------
+Advance Scenarios
+
+-Handling Multiple WebElements
+-AutoSuggestion
+-Handling SVG Elements
+-KeyBoardStroke Handling'
+-MouseOver Handling
+-Scrolling Handling
+-Synchronization Handling/waits
+-List/Drop Down Handling
+
+POPUP's
+
+-Authentication Popup
+-Alert popup
+-Hidden Division Popup
+-Calender popup
+-Frames popup
+-Window Switching popup
+-FileUpload Popup
+-File Download popup
+-Browser Native
+-------------------------------------------------------------------------------------------------------------------------------
+-Introduction FrameWork
+-DataDriven Testing
+*Properties file
+*Excel File
+-Pom classes
+-TestNG
+-Introduction To
+*Maven
+*GitHub
+*Jenkins
+------------------------------------------------------------------------------------------------------------------------------

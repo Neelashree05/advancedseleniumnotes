@@ -1,0 +1,30 @@
+ 1) Hospital_Management_System --> HEALTH CARE
+
+2) House_Rental_Application --> Real Estate
+
+3) HRM_Application --> Human Resource Management(HRs)
+
+4) Life_Insurance_Management --> Insurance
+
+5) Online_Banking_System --> Banking
+
+6) Online_Food_Ordering --> E-commerce
+
+7) Online_Shopping_Application --> E-Commerce
+
+8) Online_Tourism_Management --> Travel
+
+9) Sales_And_Inventory_System --> Sales
+
+10) Student_Management_System --> Education
+
+11) Society_Management_System --> Social Media
+
+12) Zoo_Management_System --> Tourism
+
+13) VTIGER --> CRM
+
+14) Bio-Book --> Social Media
+
+15) Supply_Chain_Management --> SCM
+ ProjectName-domain

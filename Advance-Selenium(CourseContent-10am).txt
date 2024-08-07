@@ -1,0 +1,44 @@
+Advance-Selenium
+CourseContent:
+
+Trainer:Shobha
+Start:28/05/2024
+Duration:7Weeks
+Application:-Vtiger
+------------------
+
+-MavenProject
+-DDT
+*Properties_File
+*Excel_File
+*Jason_File
+*PDF
+*JDBC(DataBase)
+Advantages of DDT
+
+Generic_Utilites
+*Excel_Utility
+*File_Utility
+*Java_Utility
+*WebDriver_Utility
+-------------------------------------------------------------------------------------------------
+POM
+-Introduction
+-Implementation
+-Advantages and DisAdvantages
+-------------------------------------------------------------------------------------------------
+TestNG
+-Introduction To TestNG
+-Implementations
+-Execution
+-Assertion
+-Listerners
+--------------------------------------------------------------------------------------------------
+-Maven
+-GitHub
+-Jenkins
+-Introduction To BDD
+-Advance Xpath
+-Sikuli
+------------------------------------------------------------------------------------------------
+Mock

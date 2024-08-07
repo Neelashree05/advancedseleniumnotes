@@ -1,0 +1,399 @@
+Organization Pom Implementation
+-------------------------------
+
+Login Pom Page
+**************
+package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class VtigerLoginPage {
+
+	//initialization
+	public VtigerLoginPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver,this);
+	}
+	
+	//Declaration
+	@FindBy(name="user_name")
+	private WebElement userTextField;
+	
+	@FindBy(name="user_password")
+	private WebElement passWordTextField;
+	
+	@FindBy(id="submitButton")
+	private WebElement loginButon;
+
+	//getterMethods
+	public WebElement getUserTextField() {
+		return userTextField;
+	}
+
+	public WebElement getPassWordTextField() {
+		return passWordTextField;
+	}
+
+	public WebElement getLoginButon() {
+		return loginButon;
+	}
+	//Business Logics
+	/**
+	 * This method is used to launch the application
+	 * @param userName
+	 * @param passWord
+	 * @author Shobha
+	 */
+	public void loginToApp(String userName, String passWord)
+	{
+		userTextField.sendKeys(userName);
+		passWordTextField.sendKeys(passWord);
+		loginButon.click();
+	}
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Home Pom Page
+-------------
+
+package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import Generic_Utilities.WebDriver_utility;
+
+public class HomePage {
+
+	//initilzation
+	public HomePage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Declaration
+	@FindBy(linkText = "Organizations")
+	private WebElement organizationLink;
+
+	@FindBy(linkText = "Products")
+	private WebElement productLink;
+	
+	@FindBy(linkText = "More")
+    private WebElement moreLink;	
+
+	@FindBy(linkText = "Campaigns")
+	private WebElement campaignsLink;
+	
+	@FindBy(xpath = "//img[@src='themes/softed/images/user.PNG']")
+	private WebElement logOutImg;
+	
+	@FindBy(xpath = "//a[text()='Sign Out']")
+	private WebElement signOut;
+	
+	//gettermethods
+	public WebElement getOrganizationLink() {
+		return organizationLink;
+	}
+	
+	public WebElement getProductLink() {
+		return productLink;
+	}
+
+	public WebElement getMoreLink() {
+		return moreLink;
+	}
+
+	public WebElement getCampaignsLink() {
+		return campaignsLink;
+	}
+	
+   public WebElement getLogOutImg() {
+		return logOutImg;
+	}
+
+    public WebElement getSignOut() {
+		return signOut;
+	}
+
+	//Business Logics
+	/**
+	 * this method is used to click organization link
+	 */
+    public void clickOrganizationLink()
+	{
+		organizationLink.click();
+	}
+    
+    /**
+     *  this method is used to click product link
+     */
+    public void clickProductLink()
+    {
+    	productLink.click();
+    }
+    
+    /**
+     *  this method is used to click more link
+     */
+    public void clickMoreLink()
+    {
+    	moreLink.click();
+    }
+    
+    /**
+     *  this method is used to click campaign link
+     */
+    public void clickCampaignLink()
+    {
+    	campaignsLink.click();
+    }
+    
+    /**
+     * This methos is used to Logout from Application
+     */
+    public void logOutFromApp()
+    {
+    	logOutImg.click();
+    	signOut.click();
+    }
+  
+    /**
+     * This method is used to Logout from Application(Altervative Approch)
+     * @param driver
+     */
+    public void logOut(WebDriver driver)
+    {
+    	WebDriver_utility wlib = new WebDriver_utility();
+    	wlib.moveToElement(driver, logOutImg);
+    	signOut.click();
+    }
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Create Organization Pom Page
+----------------------------
+package objectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import net.bytebuddy.asm.MemberSubstitution.FieldValue;
+
+public class CreateOrganizationPage {
+
+	//initilaztion
+	public CreateOrganizationPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	//Declaration
+	@FindBy(css = "[alt='Create Organization...']")
+	private WebElement orgnaizationPlusSign;
+	
+	@FindBy(name="accountname")
+	private WebElement organizationName;
+	
+	@FindBy(id="phone")
+	private WebElement organizationPhoneNum;
+	
+	@FindBy(id="email1")
+	private WebElement organizationEmailId;
+
+	@FindBy(xpath = "//input[@title='Save [Alt+S]']")
+    private WebElement saveButton;
+	
+	//getterMethods
+	public WebElement getOrgnaizationPlusSign() {
+		return orgnaizationPlusSign;
+	}
+
+	public WebElement getOrganizationName() {
+		return organizationName;
+	}
+
+	public WebElement getOrganizationPhoneNum() {
+		return organizationPhoneNum;
+	}
+
+	public WebElement getOrganizationEmailId() {
+		return organizationEmailId;
+	}
+	public WebElement getSaveButton() {
+		return saveButton;
+	}
+
+	//BusinessLogics
+	/**
+	 * This method is used to click on + sign
+	 */
+	public void clickOrgPlusSign()
+	{
+		orgnaizationPlusSign.click();
+	}
+	
+	/**
+	 * This method is used to enter orgnization name
+	 * @param OrgName
+	 */
+	public void enterOrgName(String OrgName)
+	{
+		organizationName.sendKeys(OrgName);
+	}
+	
+	/**
+	 * This method is used to enter orgnization phoneNum
+	 * @param phoneNum
+	 */
+	public void enterOrgPhoneNum(String phoneNum)
+	{
+		organizationPhoneNum.sendKeys(phoneNum);
+	}
+	
+	/**
+	 * This method is used to enter orgnization email
+	 * @param Email
+	 */
+	public void enterOrgEmail(String Email)
+	{
+		organizationEmailId.sendKeys(Email);
+	}
+	/**
+	 * This methos is used to enter organization data
+	 * @param OrgName
+	 * @param phoneNum
+	 * @param Email
+	 */
+	  public void orgData(String OrgName,String phoneNum,String Email)
+	 {
+		 organizationName.sendKeys(OrgName);
+		 organizationPhoneNum.sendKeys(phoneNum);
+		 organizationEmailId.sendKeys(Email);
+	 }
+	 
+	  /**
+	   * This Method is used to click on save Button
+	   */
+	 public void clickOnSaveButton()
+	 {
+		 saveButton.click();
+	 }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+POM Implementation Class
+---------------------------
+
+package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import Generic_Utilities.Excel_Utility;
+import Generic_Utilities.File_Utility;
+import Generic_Utilities.Java_Utility;
+import Generic_Utilities.WebDriver_utility;
+import objectRepository.CreateOrganizationPage;
+import objectRepository.HomePage;
+import objectRepository.VtigerLoginPage;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 File_Utility flib = new File_Utility();
+		 WebDriver_utility wlib = new WebDriver_utility();
+		 Java_Utility jlib = new Java_Utility();
+		 Excel_Utility elib = new Excel_Utility();
+		
+		 WebDriver driver;
+		 String BROWSER = flib.getKeyAndValueData("browser");
+		 if(BROWSER.equalsIgnoreCase("cHRoMe"))
+		 {
+			  driver=new ChromeDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("fireFox"))
+		 {
+			 driver=new FirefoxDriver();
+		 }
+		 else if(BROWSER.equalsIgnoreCase("edge"))
+		 {
+			 driver=new EdgeDriver();
+		 }
+		 else 
+			 
+		 {
+			 driver=new ChromeDriver();
+		 }
+		 
+		 String URL = flib.getKeyAndValueData("url");
+		 String USERNAME = flib.getKeyAndValueData("username");
+		 String PASSWORD = flib.getKeyAndValueData("password");
+		
+		wlib.maximizeWindow(driver);
+		 wlib.waitForElementToLoad(driver);
+		
+        driver.get(URL);
+       
+        VtigerLoginPage login = new VtigerLoginPage(driver);
+		login.loginToApp(USERNAME, PASSWORD);
+ 
+        HomePage home = new HomePage(driver);
+        home.clickOrganizationLink();
+        
+       CreateOrganizationPage orgPage = new CreateOrganizationPage(driver);
+     
+       orgPage.clickOrgPlusSign();
+       
+        int ranNum = jlib.getRandomNumber();
+     
+  String organizationData = elib.readExcelDataUsingDataFormatter("Organization", 0, 0)+ranNum;
+         
+    //    driver.findElement(By.name("accountname")).sendKeys(organizationData);
+     //   orgPage.enterOrgName(organizationData);
+        
+        String phoneNum = elib.readExcelDataUsingDataFormatter("Organization", 2, 1);
+    //    driver.findElement(By.id("phone")).sendKeys(phoneNum);
+    //    orgPage.enterOrgPhoneNum(phoneNum);
+        
+        String emailId = elib.readExcelDataUsingDataFormatter("Organization", 3, 1);
+    //    driver.findElement(By.id("email1")).sendKeys(emailId);
+      //  orgPage.enterOrgEmail(emailId);
+       
+        orgPage.orgData(organizationData, phoneNum, emailId);
+        
+    //    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        orgPage.clickOnSaveButton();
+        
+        Thread.sleep(2000);
+        
+    //    driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+     //   driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+      
+        //home.logOutFromApp();
+        home.logOut(driver);
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+

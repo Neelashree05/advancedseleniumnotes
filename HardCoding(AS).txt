@@ -1,0 +1,401 @@
+package Organization;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateOrganization {
+
+	public static void main(String[] args) throws Throwable {
+	
+		 WebDriver driver=new ChromeDriver();
+		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	     Properties pro = new Properties();
+	     pro.load(fis);
+	    
+	    String URL = pro.getProperty("url");
+	   String USERNAME = pro.getProperty("username");
+	   String PASSWORD = pro.getProperty("password");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        
+        driver.findElement(By.linkText("Organizations")).click();
+        driver.findElement(By.cssSelector("[alt='Create Organization...']")).click();
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+      //step1:- path connections
+        FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+        	   
+               //step2:-open workbook in read mode
+        	Workbook book1 = WorkbookFactory.create(fis2);
+        	
+        	  //step3:-get the control of the Sheet
+        	Sheet sheet1 = book1.getSheet("Organization");
+        	
+        	//step4:- get control of the row
+        	Row row1 = sheet1.getRow(0);
+        	
+        	//step5:- get control of the cell
+        	Cell cell1 = row1.getCell(0);
+        	
+        	String organizationData = cell1.getStringCellValue()+ranNumber;
+        	
+        	System.out.println(organizationData);
+        
+        driver.findElement(By.name("accountname")).sendKeys(organizationData);
+        driver.findElement(By.id("phone")).sendKeys("9846546824");
+        driver.findElement(By.id("email1")).sendKeys("adc@gmail.com");
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateProduct {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 WebDriver driver=new ChromeDriver();
+		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	     Properties pro = new Properties();
+	     pro.load(fis);
+	    
+	    String URL = pro.getProperty("url");
+	   String USERNAME = pro.getProperty("username");
+	   String PASSWORD = pro.getProperty("password");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+       
+        driver.findElement(By.linkText("Products")).click();
+        driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+		//step1:- path connections
+FileInputStream fis1 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis1);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Product");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(0);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(0);
+	
+	String productData = cell.getStringCellValue()+ranNumber;
+	
+	System.out.println(productData);
+    driver.findElement(By.name("productname")).sendKeys(productData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+    Thread.sleep(2000);
+    driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+    driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+
+	}
+
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Product;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Properties;
+import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateProductandDeletePrd {
+
+	public static void main(String[] args) throws Throwable {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+        Properties pro = new Properties();
+        pro.load(fis);
+        String URL = pro.getProperty("url");
+	    String USERNAME = pro.getProperty("username");
+	    String PASSWORD = pro.getProperty("password");
+	
+	    driver.get(URL);
+	    driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+	    driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+	    driver.findElement(By.id("submitButton")).click();
+	    
+	    driver.findElement(By.linkText("Products")).click();
+	    driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+	   
+	    Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+	    FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+ 	   
+        //step2:-open workbook in read mode
+ 	Workbook book1 = WorkbookFactory.create(fis2);
+ 	
+ 	  //step3:-get the control of the Sheet
+ 	Sheet sheet1 = book1.getSheet("Product");
+ 	
+ 	//step4:- get control of the row
+ 	Row row1 = sheet1.getRow(1);
+ 	
+ 	//step5:- get control of the cell
+ 	Cell cell1 = row1.getCell(1);
+ 	
+ 	String productData = cell1.getStringCellValue()+ranNumber;
+ 	
+ 	System.out.println(productData);
+  driver.findElement(By.name("productname")).sendKeys(productData);
+	driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();    
+	    
+	 driver.findElement(By.linkText("Products")).click(); 
+//	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='Product Name']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//table[@class='lvt small']/tbody/tr//td//a[text()='"+productData+"']/../preceding-sibling::td//input[@type='checkbox']")).click();
+	    
+	 driver.findElement(By.xpath("//input[@value='Delete']")).click();
+	    
+	    driver.switchTo().alert().accept();
+	    
+	  List<WebElement> productList = driver.findElements(By.xpath("(//table[@class='lvt small']/tbody/tr/td[3])[position()>1]")); 
+	    	
+	boolean flag = false;
+	
+	for (WebElement prdName : productList)
+	{
+		String actData = prdName.getText();
+		if(actData.contains(productData))
+		{
+			flag=true;
+		   break;
+		}}
+	if(flag)
+	{
+		System.out.println("product data is deleted");
+	}
+	else
+	{
+		System.out.println("product data is not deleted");
+	}
+		
+	}
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Campaign;
+
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateCampaign {
+
+	public static void main(String[] args) throws Throwable {
+		
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://localhost:8888/");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.findElement(By.name("user_name")).sendKeys("admin");
+        driver.findElement(By.name("user_password")).sendKeys("admin");
+        driver.findElement(By.id("submitButton")).click();
+
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+        
+        driver.findElement(By.name("campaignname")).sendKeys("Marketing");
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Campaign;
+
+import java.io.FileInputStream;
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Properties;
+import java.util.Random;
+import java.util.Set;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CreateCampaignWithProduct {
+
+	public static void main(String[] args) throws Throwable {
+		
+		 WebDriver driver=new ChromeDriver();
+		 FileInputStream fis = new FileInputStream("./src/test/resources/CommonData10am.properties");
+	     Properties pro = new Properties();
+	     pro.load(fis);
+	    
+	    String URL = pro.getProperty("url");
+	   String USERNAME = pro.getProperty("username");
+	   String PASSWORD = pro.getProperty("password");
+        driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+       
+		driver.get(URL);
+		driver.findElement(By.name("user_name")).sendKeys(USERNAME);
+        driver.findElement(By.name("user_password")).sendKeys(PASSWORD);
+        driver.findElement(By.id("submitButton")).click();
+       
+        Random ranNum = new Random();
+        int ranNumber = ranNum.nextInt(1000);
+       
+        driver.findElement(By.linkText("Products")).click();
+        driver.findElement(By.xpath("//img[@alt='Create Product...']")).click();
+		//step1:- path connections
+FileInputStream fis1 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+	   
+       //step2:-open workbook in read mode
+	Workbook book = WorkbookFactory.create(fis1);
+	
+	  //step3:-get the control of the Sheet
+	Sheet sheet = book.getSheet("Product");
+	
+	//step4:- get control of the row
+	Row row = sheet.getRow(0);
+	
+	//step5:- get control of the cell
+	Cell cell = row.getCell(0);
+	
+	String productData = cell.getStringCellValue()+ranNumber;
+	
+	System.out.println(productData);
+    driver.findElement(By.name("productname")).sendKeys(productData);
+ 
+    driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        driver.findElement(By.linkText("More")).click();
+        driver.findElement(By.linkText("Campaigns")).click();
+        driver.findElement(By.xpath("//img[@title='Create Campaign...']")).click();
+    	//step1:- path connections
+        FileInputStream fis2 = new FileInputStream("./src/test/resources/ExcelSheet10am.xlsx");
+        	   
+               //step2:-open workbook in read mode
+        	Workbook book1 = WorkbookFactory.create(fis2);
+        	
+        	  //step3:-get the control of the Sheet
+        	Sheet sheet1 = book1.getSheet("Campaign");
+        	
+        	//step4:- get control of the row
+        	Row row1 = sheet1.getRow(0);
+        	
+        	//step5:- get control of the cell
+        	Cell cell1 = row1.getCell(0);
+        	
+        	String campaignData = cell1.getStringCellValue()+ranNumber;
+        	
+        	System.out.println(campaignData);
+        
+        driver.findElement(By.name("campaignname")).sendKeys(campaignData);
+       
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/select.gif']")).click();
+        
+        Set<String> wins = driver.getWindowHandles();
+      Iterator<String> it = wins.iterator();
+         while(it.hasNext())
+       {
+    	   String win = it.next();
+    	   driver.switchTo().window(win);
+    	   String currentTitle = driver.getTitle();
+    	   if(currentTitle.contains("Products&action"))
+    	   {
+    		   break;
+    	   }
+       }
+        driver.findElement(By.xpath("//input[@id='search_txt']")).sendKeys(productData);
+        driver.findElement(By.xpath("//input[@name='search']")).click();
+      
+        //Dynamic Xpath
+        driver.findElement(By.xpath("//a[text()='"+productData+"']")).click(); 
+        
+        Set<String> wins1 = driver.getWindowHandles();
+        Iterator<String> it1 = wins1.iterator();
+           while(it1.hasNext())
+         {
+      	   String win1 = it1.next();
+      	   driver.switchTo().window(win1);
+      	   String currentTitle1 = driver.getTitle();
+      	   if(currentTitle1.contains("Campaigns&action"))
+      	   {
+      		   break;
+      	   }
+         }
+        driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
+        
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")).click();
+        driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+     }
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
